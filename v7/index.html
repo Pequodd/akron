@@ -14,15 +14,31 @@
 <body data-page="home" data-solid="1">
 <header id="hd"></header>
 <main>
-  <section class="gable" id="gable" aria-labelledby="heroT">
-    <div class="gable-stage" id="gstage">
-      <div class="pad gable-title"><h1 class="h-xl" id="heroT">Дом, который строят один раз</h1><p class="text sub">Каменные дома под ключ в Московской области</p></div>
-      <div class="gable-win"><img src="assets/img/s-tree.jpg" alt="Каменный дом под старым деревом в сумерках"></div>
-      <div class="pad gable-foot">
-        <p class="text" style="color:#fff;max-width:20em">Проект, стройка и отделка одной командой. Цена фиксируется в договоре и не меняется до сдачи дома.</p>
-        <div class="hero-cap"><a class="btn d" href="#projects">Смотреть проекты</a><span class="mono" style="color:rgba(255,255,255,.8)">Истра, 2024</span></div>
+  <section class="hero7" aria-labelledby="heroT">
+    <div class="pad hero7-in">
+      <div class="h7-text">
+        <h1 class="h-xl" id="heroT">Дом, который строят один раз</h1>
+        <p class="text h7-lead">Каменные дома под ключ в Московской области. Проект, стройка и отделка одной командой, цена фиксируется в договоре.</p>
+        <div class="h7-acts"><a class="btn btn--dark d" href="#projects">Смотреть проекты</a><a class="btn btn--line d" href="contacts.html#form">Обсудить дом</a></div>
+        <dl class="h7-facts"><div><dt>Построено</dt><dd class="num">340 домов</dd></div><div><dt>Гарантия</dt><dd class="num">15 лет</dd></div><div><dt>Работаем</dt><dd class="num">с 2009 года</dd></div></dl>
       </div>
-      <span class="gable-hint">Прокрутите, чтобы открыть дом</span>
+      <div class="h7-pic">
+        <div class="h7-gable" id="h7Gable">
+          <img class="on" src="assets/img/s-dusk.jpg" alt="Каменный дом с панорамными окнами вечером">
+          <img src="assets/img/s-wood.jpg" alt="Дом из дерева и камня" loading="lazy">
+          <img src="assets/img/s-tree.jpg" alt="Дом под старым деревом" loading="lazy">
+          <img src="assets/img/s-white.jpg" alt="Белый дом с деревянной облицовкой" loading="lazy">
+        </div>
+        <div class="h7-under">
+          <span class="mono mute" id="h7Cap">Одинцовский округ, 2025</span>
+          <div class="h7-thumbs" role="group" aria-label="Выбрать дом">
+            <button type="button" aria-pressed="true" data-cap="Одинцовский округ, 2025" aria-label="Дом 1"><img src="assets/img/s-dusk.jpg" alt=""></button>
+            <button type="button" aria-pressed="false" data-cap="Рузский округ, 2025" aria-label="Дом 2"><img src="assets/img/s-wood.jpg" alt="" loading="lazy"></button>
+            <button type="button" aria-pressed="false" data-cap="Истра, 2024" aria-label="Дом 3"><img src="assets/img/s-tree.jpg" alt="" loading="lazy"></button>
+            <button type="button" aria-pressed="false" data-cap="Красногорск, 2023" aria-label="Дом 4"><img src="assets/img/s-white.jpg" alt="" loading="lazy"></button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -71,9 +87,24 @@
     <div class="pad mosaic" id="mosaic"></div>
   </section>
 
-  <section class="sec" style="padding-top:0" aria-labelledby="kitT">
-    <div class="pad halves sec-head"><h2 class="h-1" id="kitT">Сколько стоит дом</h2><p class="text">Можно остановиться на любой стадии. Чаще всего заказывают тёплый контур, а отделку делают позже.</p></div>
-    <div class="pad"><div class="tbl-wrap" id="kits"></div></div>
+  <section class="sec stone-band" aria-labelledby="kitT">
+    <div class="pad price7" id="price7">
+      <div class="p7-left">
+        <h2 class="h-1" id="kitT">Сколько стоит дом</h2>
+        <p class="text" style="margin-top:24px">Можно остановиться на любой стадии. Чаще всего заказывают тёплый контур, а отделку делают позже.</p>
+        <div class="p7-kits" role="radiogroup" aria-label="Комплектация" id="p7Kits"></div>
+      </div>
+      <div class="p7-right" aria-live="polite">
+        <div class="p7-pic" id="p7Pic"></div>
+        <div class="p7-calc">
+          <label for="p7Area" class="p7-area"><span>Площадь дома</span><b id="p7AreaOut" class="num">186 м²</b></label>
+          <input type="range" id="p7Area" min="80" max="330" step="2" value="186">
+          <div class="p7-total"><span id="p7Kit">Тёплый контур</span><b id="p7Sum" class="num"></b></div>
+        </div>
+        <ul class="p7-inc" id="p7Inc"></ul>
+        <p class="mute" style="font-size:15px;margin-top:20px">Базовая цена: монолитная плита, штукатурный фасад, металлочерепица. Точную смету по вашему проекту посчитаем за 3 рабочих дня.</p>
+      </div>
+    </div>
   </section>
 
   <section class="dark sec" id="form" aria-labelledby="ctaT">

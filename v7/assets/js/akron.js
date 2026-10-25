@@ -117,7 +117,7 @@
   if (page === 'home') {
     // окно-силуэт раскрывается по мере прокрутки
     var gable = $('#gable'), stage = $('#gstage');
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) gable.classList.add('static');
+    if (!gable) {} else if (matchMedia('(prefers-reduced-motion: reduce)').matches) gable.classList.add('static');
     else {
       var tick = function () {
         var r = gable.getBoundingClientRect(), span = gable.offsetHeight - innerHeight;
@@ -125,6 +125,18 @@
         stage.style.setProperty('--p', p.toFixed(3));
       };
       addEventListener('scroll', tick, { passive: true }); addEventListener('resize', tick); tick();
+    }
+    // первый экран: смена дома по миниатюрам
+    var hg = $('#h7Gable');
+    if (hg) {
+      var hImgs = hg.querySelectorAll('img');
+      document.querySelectorAll('.h7-thumbs button').forEach(function (b, i, all) {
+        b.addEventListener('click', function () {
+          all.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+          hImgs.forEach(function (im, k) { im.classList.toggle('on', k === i); });
+          $('#h7Cap').textContent = b.dataset.cap;
+        });
+      });
     }
     // карусель проектов
     var rail = $('#rail');
@@ -150,7 +162,34 @@
     $('#mosaic').innerHTML = D.objects.slice(0, 4).map(function (o) {
       return '<a href="project.html#' + o.project + '">' + img(o.img, o.name) + '<span>' + o.name + ', ' + o.place + '</span></a>';
     }).join('');
-    drawKits($('#kits'));
+    // стоимость: выбор стадии, площадь и что входит
+    var kitPics = { box: ['rebar', 'Коробка: плита, стены и кровля'], warm: ['s-wood', 'Тёплый контур: окна и фасад'], white: ['i-white', 'White box: инженерия и черновая отделка'], key: ['i-long', 'Под ключ: можно заезжать'] };
+    var steps = [['Фундамент, стены, перекрытия, кровля', 0], ['Окна и входная дверь', 1], ['Утеплённый фасад', 1], ['Отопление, вода, канализация, электрика', 2], ['Стяжка и штукатурка стен', 2], ['Чистовая отделка по дизайн-проекту', 3], ['Сантехника, свет, благоустройство у дома', 3]];
+    var ks = 1;
+    $('#p7Kits').innerHTML = D.kits.map(function (k, i) {
+      return '<button type="button" role="radio" class="p7-kit" data-i="' + i + '" aria-checked="' + (i === ks) + '"><span class="nm">' + k.name + '</span><span class="pr num">' + rub.format(k.per) + ' ₽<small> за м²</small></span><span class="ds">' + k.desc + '</span></button>';
+    }).join('');
+    $('#p7Pic').innerHTML = D.kits.map(function (k) { return '<img src="assets/img/' + kitPics[k.id][0] + '.jpg" alt="' + kitPics[k.id][1] + '" loading="lazy">'; }).join('') + '<span class="badge" id="p7Badge"></span>';
+    var drawP7 = function () {
+      var k = D.kits[ks], area = +$('#p7Area').value;
+      document.querySelectorAll('.p7-kit').forEach(function (b, i) { b.setAttribute('aria-checked', String(i === ks)); });
+      document.querySelectorAll('#p7Pic img').forEach(function (im, i) { im.classList.toggle('on', i === ks); });
+      $('#p7Badge').textContent = kitPics[k.id][1];
+      $('#p7AreaOut').textContent = area + ' м²';
+      $('#p7Kit').textContent = k.name + ', ' + area + ' м²';
+      $('#p7Sum').textContent = 'от ' + mln(k.per * area);
+      $('#p7Inc').innerHTML = steps.map(function (st) {
+        var on = st[1] <= ks, isNew = st[1] === ks && ks > 0;
+        return '<li class="' + (on ? 'on' : 'off') + (isNew ? ' new' : '') + '"><span class="ic" aria-hidden="true">' + (on ? '<svg viewBox="0 0 20 20"><path d="M4 10.5 L8.5 15 L16 5.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>' : '') + '</span>' + st[0] + (isNew ? '<em>добавляется</em>' : '') + (on ? '' : '<span class="sr">, не входит</span>') + '</li>';
+      }).join('');
+    };
+    $('#p7Kits').addEventListener('click', function (e) { var b = e.target.closest('.p7-kit'); if (b) { ks = +b.dataset.i; drawP7(); } });
+    $('#p7Kits').addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp' && e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault(); ks = (ks + (e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : 3)) % 4; drawP7(); document.querySelectorAll('.p7-kit')[ks].focus();
+    });
+    $('#p7Area').addEventListener('input', drawP7);
+    drawP7();
   }
 
   function drawKits(el) {
