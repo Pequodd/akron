@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Построенные дома — Акрон</title>
+<meta name="description" content="Дома, которые построил Акрон в Московской области.">
+<meta name="theme-color" content="#1B1C1E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;800&family=Onest:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/akron.css">
+</head>
+<body data-page="objects">
+<header id="hd"></header>
+<main>
+  <div class="g page-head">
+    <p class="crumbs"><a href="index.html">Главная</a> / Построенные дома</p>
+    <h1 class="d-xl"><b>Построено</b></h1>
+    <p class="intro lead">340 домов в 14 округах Московской области. По субботам владельцы показывают свои дома тем, кто выбирает проект.</p>
+  </div>
+
+  <section class="g sec" style="padding-top:64px" aria-label="Построенные дома"><div class="c-a homes" id="homes"></div></section>
+  <section class="final" id="form" aria-labelledby="ctaT">
+    <a class="final-link pad" href="#oName"><span id="ctaT"><span class="thin">На экскурсию</span> <b>в субботу</b></span></a>
+    <div class="g sec" style="padding-top:clamp(40px,5vw,80px)">
+      <div class="c-l tag">( Заявка )</div>
+      <div class="c-r" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:40px 64px">
+        <p class="lead ash">Покажем дом на стадии коробки и обжитый дом того же проекта, чтобы было видно, что спрятано в стенах.</p>
+        <div>
+          <form class="form" novalidate>
+            <div class="row2">
+              <label for="oName">Имя<input id="oName" name="name" autocomplete="name" placeholder="Как к вам обращаться"></label>
+              <label for="oPhone">Телефон<input id="oPhone" name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label>
+            </div>
+            <label for="oProject">Проект<select id="oProject" name="project"></select></label>
+            <label for="oNote">Участок или кадастровый номер<input id="oNote" name="note" placeholder="Например: 50:08:0050211:1093"></label>
+            <p class="err" role="alert" hidden></p>
+            <button class="btn btn--brass" type="submit">Записаться на экскурсию</button>
+            <p class="fine">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+          </form>
+          <div class="sent" hidden><p class="d-2">Заявка <b>принята</b></p><p class="ash">Перезвоним на номер <span data-phone class="num"></span> и подберём ближайшую субботу.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer id="ft"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/akron.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Проект дома — Акрон</title>
+<meta name="description" content="Проект каменного дома Акрон: планировка, материалы и смета.">
+<meta name="theme-color" content="#1B1C1E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;800&family=Onest:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/akron.css">
+</head>
+<body data-page="project">
+<header id="hd"></header>
+<main>
+
+  <div class="g page-head" style="border-bottom:0">
+    <p class="crumbs"><a href="index.html">Главная</a> / <a href="projects.html">Проекты</a> / <span id="pjCrumb"></span></p>
+    <h1 class="d-xl" id="pjName">Проект</h1>
+    <div class="intro"><p class="lead" id="pjAbout"></p><p style="margin-top:20px" class="d-3" id="pjPrice"></p></div>
+  </div>
+  <div class="saw pj-saw" id="pjCover" role="img" aria-label="Фото дома по проекту"></div>
+  <div class="g" style="margin-top:40px"><div class="c-a specs" id="pjSpecs"></div></div>
+
+  <section class="sec" aria-labelledby="planT">
+    <div class="g"><div class="c-l tag">( Планировка )</div><div class="c-r" style="margin-bottom:clamp(32px,4vw,64px)"><h2 class="d-1" id="planT"><span class="thin">Планировка</span> <b>по этажам</b></h2><p class="ash" style="margin-top:20px;max-width:34em">Схема для ориентира. Рабочие чертежи выдаём после подписания договора на проект.</p></div>
+      <div class="c-a">
+        <div class="tabs" id="pjTabs" role="group" aria-label="Этаж"></div>
+        <div class="plan-wrap">
+          <div class="plan-box" id="pjPlan"></div>
+          <div><ul class="rooms" id="pjRooms"></ul><h3 class="d-3" style="margin:40px 0 16px">Материалы</h3><dl class="mat" id="pjMat"></dl></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="border-top:1px solid var(--line)" aria-labelledby="intT">
+    <div class="g"><div class="c-l tag">( Интерьеры )</div><div class="c-r" style="margin-bottom:clamp(32px,4vw,64px)"><h2 class="d-1" id="intT"><span class="thin">Внутри</span> <b>дома</b></h2><p class="ash" style="margin-top:20px;max-width:34em">Визуализации из дизайн-проекта. В комплектации «Под ключ» отделка делается по ним.</p></div>
+      <div class="c-a gallery" id="pjGallery"></div>
+    </div>
+  </section>
+
+  <section class="sec" style="border-top:1px solid var(--line)" aria-labelledby="calcT">
+    <div class="g"><div class="c-l tag">( Смета )</div><div class="c-r" style="margin-bottom:clamp(32px,4vw,64px)"><h2 class="d-1" id="calcT"><span class="thin">Соберите</span> <b>комплектацию</b></h2><p class="ash" style="margin-top:20px;max-width:34em">Цены 2026 года, не являются публичной офертой.</p></div>
+      <div class="c-a calc" id="calc">
+        <div class="calc-opts" id="calcOpts"></div>
+        <div class="calc-res" aria-live="polite">
+          <span class="ash" id="calcKit"></span>
+          <div class="total" id="calcTotal"></div>
+          <dl id="calcBreak"></dl>
+          <a class="btn btn--brass" href="#form">Получить точную смету</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="final" id="form" aria-labelledby="ctaT">
+    <a class="final-link pad" href="#pName"><span id="ctaT"><span class="thin">Смета</span> <b>за 3 дня</b></span></a>
+    <div class="g sec" style="padding-top:clamp(40px,5vw,80px)">
+      <div class="c-l tag">( Заявка )</div>
+      <div class="c-r" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:40px 64px">
+        <p class="lead ash">Пришлём поэтапную смету по этому проекту с учётом вашего участка. Это бесплатно.</p>
+        <div>
+          <form class="form" novalidate>
+            <div class="row2">
+              <label for="pName">Имя<input id="pName" name="name" autocomplete="name" placeholder="Как к вам обращаться"></label>
+              <label for="pPhone">Телефон<input id="pPhone" name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label>
+            </div>
+            <label for="pProject">Проект<select id="pProject" name="project"></select></label>
+            <label for="pNote">Участок или кадастровый номер<input id="pNote" name="note" placeholder="Например: 50:08:0050211:1093"></label>
+            <p class="err" role="alert" hidden></p>
+            <button class="btn btn--brass" type="submit">Получить смету</button>
+            <p class="fine">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+          </form>
+          <div class="sent" hidden><p class="d-2">Заявка <b>принята</b></p><p class="ash">Смету пришлём за 3 рабочих дня, а сегодня позвоним на номер <span data-phone class="num"></span>.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="border-top:1px solid var(--line)" aria-labelledby="othT">
+    <div class="g"><div class="c-l tag">( Ещё )</div><div class="c-r" style="margin-bottom:clamp(32px,4vw,64px)"><h2 class="d-1" id="othT"><span class="thin">Другие</span> <b>проекты</b></h2></div><div class="c-a grid3" id="pjOthers"></div></div>
+  </section>
+</main>
+<footer id="ft"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/akron.js"></script>
+</body>
+</html>

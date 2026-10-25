@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>О компании — Акрон</title>
+<meta name="description" content="Акрон: архитектурное бюро и генподрядчик, 340 каменных домов с 2009 года.">
+<meta name="theme-color" content="#1B1C1E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;800&family=Onest:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/akron.css">
+</head>
+<body data-page="about">
+<header id="hd"></header>
+<main>
+  <div class="g page-head">
+    <p class="crumbs"><a href="index.html">Главная</a> / О компании</p>
+    <h1 class="d-xl"><span class="thin">О</span> <b>компании</b></h1>
+    <p class="intro lead">Акрон по-гречески значит «вершина». Так в античной архитектуре называли украшение на коньке фронтона, деталь, которую ставят последней.</p>
+  </div>
+
+  <section class="sec ghost" data-word="2009" aria-labelledby="manT">
+    <div class="g">
+      <div class="c-l tag">( Позиция )</div>
+      <div class="c-r"><h2 class="d-2" id="manT"><span class="thin">В 2012 году мы собрали</span> <b>первую бригаду</b><span class="thin">, потому что подрядчики слишком часто упрощали наши проекты. Сейчас архитекторы, сметчики, строители и технадзор работают</span> <b>в одной компании</b><span class="thin">.</span></h2></div>
+    </div>
+  </section>
+  <div class="split">
+    <div class="ph"><img src="assets/img/drawing.jpg" alt="Архитектор работает над чертежом" loading="lazy"></div>
+    <div class="rows">
+      <div><h3>14 архитекторов и инженеров</h3><p>Проект, конструкции и инженерные сети в одном бюро.</p></div>
+      <div><h3>9 сметчиков и снабженцев</h3><p>Закупают материалы у заводов и держат цену весь срок стройки.</p></div>
+      <div><h3>22 бригады</h3><p>Каменщики, монолитчики, кровельщики и монтажники инженерных систем.</p></div>
+      <div><h3>7 инженеров технадзора</h3><p>Подчиняются директору по качеству, а не прорабу объекта.</p></div>
+    </div>
+  </div>
+  <section class="sec" aria-labelledby="hisT">
+    <div class="g"><div class="c-l tag">( История )</div><div class="c-r" style="margin-bottom:clamp(32px,4vw,64px)"><h2 class="d-1" id="hisT"><span class="thin">Шестнадцать</span> <b>лет</b></h2></div>
+      <ul class="years c-r">
+        <li><b>2009</b><div><h3>Архитектурное бюро</h3><p>Три архитектора проектируют дома для других подрядчиков</p></div></li>
+        <li><b>2012</b><div><h3>Первая своя бригада</h3><p>Первый дом по своему проекту в Истринском округе</p></div></li>
+        <li><b>2016</b><div><h3>Фиксированная смета</h3><p>Убрали из договора слова «ориентировочная стоимость». Построено 48 домов</p></div></li>
+        <li><b>2019</b><div><h3>Каталог проектов</h3><p>Пять проектов, проверенных на стройке</p></div></li>
+        <li><b>2022</b><div><h3>Шоурум в Истре</h3><p>Кирпич, окна и кровля в натуральную величину</p></div></li>
+        <li><b>2026</b><div><h3>340 домов</h3><p>Смета, график и фотоотчёты по объекту доступны клиенту онлайн</p></div></li>
+      </ul>
+    </div>
+  </section>
+  <section class="final" id="form" aria-labelledby="ctaT">
+    <a class="final-link pad" href="#aName"><span id="ctaT"><span class="thin">Работа</span> <b>в Акроне</b></span></a>
+    <div class="g sec" style="padding-top:clamp(40px,5vw,80px)">
+      <div class="c-l tag">( Заявка )</div>
+      <div class="c-r" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:40px 64px">
+        <p class="lead ash">Ищем прорабов, архитекторов и инженеров технадзора. Оставьте контакты, и мы расскажем о вакансиях. Резюме можно прислать на job@akron.example.</p>
+        <div>
+          <form class="form" novalidate>
+            <div class="row2">
+              <label for="aName">Имя<input id="aName" name="name" autocomplete="name" placeholder="Как к вам обращаться"></label>
+              <label for="aPhone">Телефон<input id="aPhone" name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label>
+            </div>
+            <label for="aProject">Проект<select id="aProject" name="project"></select></label>
+            <label for="aNote">Участок или кадастровый номер<input id="aNote" name="note" placeholder="Например: 50:08:0050211:1093"></label>
+            <p class="err" role="alert" hidden></p>
+            <button class="btn btn--brass" type="submit">Оставить контакты</button>
+            <p class="fine">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+          </form>
+          <div class="sent" hidden><p class="d-2">Заявка <b>принята</b></p><p class="ash">Перезвоним на номер <span data-phone class="num"></span> в течение рабочего дня.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer id="ft"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/akron.js"></script>
+</body>
+</html>
