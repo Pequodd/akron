@@ -4,91 +4,68 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Технология — Акрон</title>
-<meta name="description" content="Из чего Акрон строит каменные дома: стена, фундамент, контроль качества, гарантия.">
-<meta name="theme-color" content="#F5F6F2">
+<meta name="description" content="Из чего Акрон строит каменные дома.">
+<meta name="theme-color" content="#1B1C1E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;800&family=Onest:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/css/akron.css">
 </head>
 <body data-page="technology">
 <header id="hd"></header>
 <main>
-  <div class="wrap page-head">
+  <div class="g page-head">
     <p class="crumbs"><a href="index.html">Главная</a> / Технология</p>
-    <div class="two">
-      <h1 class="t-hero">Технология</h1>
-      <p class="t-lead mute">Строим из газобетона и керамического блока с облицовкой кирпичом. Такой дом тёплый, не горит и не требует ухода за фасадом десятилетиями.</p>
-    </div>
+    <h1 class="d-xl"><b>Технология</b></h1>
+    <p class="intro lead">Газобетон и керамический блок с облицовкой кирпичом. Тёплый дом, который не горит и не требует ухода за фасадом.</p>
   </div>
 
-  <section class="sec" style="padding-top:clamp(24px,4vw,56px)" aria-labelledby="wallT">
-    <div class="wrap">
-      <div class="head"><h2 class="t-1" id="wallT">Стена толщиной 565 мм</h2><p>Сопротивление теплопередаче 3,6 м²·°С/Вт при норме 3,13 для Москвы. Утеплитель не нужен. Наведите на слой, чтобы найти его на разрезе.</p></div>
-      <div class="wall">
+  <section class="sec" aria-labelledby="wallT">
+    <div class="g"><div class="c-l tag">( Разрез стены )</div><div class="c-r" style="margin-bottom:clamp(32px,4vw,64px)"><h2 class="d-1" id="wallT"><span class="thin">Стена</span> <b>565 мм</b></h2><p class="ash" style="margin-top:20px;max-width:34em">Сопротивление теплопередаче 3,6 м²·°С/Вт при норме 3,13 для Москвы. Утеплитель не нужен. Наведите на слой, чтобы найти его на разрезе.</p></div>
+      <div class="c-a wall">
         <div class="wall-pic">
           <svg viewBox="0 0 680 520" role="img" aria-label="Разрез наружной стены: кирпич, вентзазор, газобетон, штукатурка">
             <defs>
-              <pattern id="pBrick" width="40" height="20" patternUnits="userSpaceOnUse"><rect width="40" height="20" fill="#E9DCCF"/><path d="M0 .5 H40 M0 10.5 H40 M20 0 V10 M0 10 V20 M40 10 V20" stroke="#A8826A" stroke-width="1"/></pattern>
-              <pattern id="pGas" width="16" height="16" patternUnits="userSpaceOnUse"><rect width="16" height="16" fill="#EEF0EC"/><circle cx="4" cy="5" r="1.6" fill="#B8C0B9"/><circle cx="12" cy="12" r="1.1" fill="#B8C0B9"/><circle cx="12" cy="3" r=".8" fill="#B8C0B9"/></pattern>
-              <pattern id="pPlaster" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#F7F7F4"/><line x1="0" y1="0" x2="0" y2="6" stroke="#C9CFC8"/></pattern>
+              <pattern id="pBrick" width="40" height="20" patternUnits="userSpaceOnUse"><rect width="40" height="20" fill="#5A3F31"/><path d="M0 .5 H40 M0 10.5 H40 M20 0 V10 M0 10 V20 M40 10 V20" stroke="#C9A46A" stroke-opacity=".6" stroke-width="1"/></pattern>
+              <pattern id="pGas" width="16" height="16" patternUnits="userSpaceOnUse"><rect width="16" height="16" fill="#34353A"/><circle cx="4" cy="5" r="1.6" fill="#6B6A66"/><circle cx="12" cy="12" r="1.1" fill="#6B6A66"/><circle cx="12" cy="3" r=".8" fill="#6B6A66"/></pattern>
+              <pattern id="pPlaster" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#2B2C30"/><line x1="0" y1="0" x2="0" y2="6" stroke="#9A968F"/></pattern>
             </defs>
             <g transform="translate(56 40)">
-              <g class="layer" data-l="1"><rect width="120" height="380" fill="url(#pBrick)" stroke="#1C2420" stroke-width="1.5"/></g>
-              <g class="layer" data-l="2"><rect x="120" width="30" height="380" fill="#FFFFFF" stroke="#1C2420" stroke-width="1.5" stroke-dasharray="5 4"/>
-                <g stroke="#1F3A2D" stroke-width="3" stroke-linecap="round"><line x1="60" y1="80" x2="290" y2="80"/><line x1="60" y1="190" x2="290" y2="190"/><line x1="60" y1="300" x2="290" y2="300"/></g></g>
-              <g class="layer" data-l="3"><rect x="150" width="400" height="380" fill="url(#pGas)" stroke="#1C2420" stroke-width="1.5"/>
-                <g stroke="#1C2420" stroke-opacity=".25"><line x1="150" y1="126" x2="550" y2="126"/><line x1="150" y1="252" x2="550" y2="252"/></g></g>
-              <g class="layer" data-l="4"><rect x="550" width="15" height="380" fill="url(#pPlaster)" stroke="#1C2420" stroke-width="1.5"/></g>
-              <g font-family="Jost, sans-serif" font-size="15" fill="#5F6962" text-anchor="middle">
-                <line x1="0" y1="410" x2="565" y2="410" stroke="#5F6962"/>
-                <g stroke="#5F6962"><line x1="0" y1="403" x2="0" y2="417"/><line x1="120" y1="403" x2="120" y2="417"/><line x1="150" y1="403" x2="150" y2="417"/><line x1="550" y1="403" x2="550" y2="417"/><line x1="565" y1="403" x2="565" y2="417"/></g>
-                <text x="60" y="436">120</text><text x="135" y="456">30</text><text x="350" y="436">400</text><text x="560" y="456">15</text>
-                <text x="0" y="-14" text-anchor="start" fill="#1C2420">Улица</text><text x="565" y="-14" text-anchor="end" fill="#1C2420">Комната</text>
+              <g class="layer" data-l="1"><rect width="120" height="380" fill="url(#pBrick)" stroke="#EDE8DF" stroke-width="1.5"/></g>
+              <g class="layer" data-l="2"><rect x="120" width="30" height="380" fill="#1B1C1E" stroke="#EDE8DF" stroke-width="1.5" stroke-dasharray="5 4"/>
+                <g stroke="#C9A46A" stroke-width="3"><line x1="60" y1="80" x2="290" y2="80"/><line x1="60" y1="190" x2="290" y2="190"/><line x1="60" y1="300" x2="290" y2="300"/></g></g>
+              <g class="layer" data-l="3"><rect x="150" width="400" height="380" fill="url(#pGas)" stroke="#EDE8DF" stroke-width="1.5"/></g>
+              <g class="layer" data-l="4"><rect x="550" width="15" height="380" fill="url(#pPlaster)" stroke="#EDE8DF" stroke-width="1.5"/></g>
+              <g font-family="Onest, sans-serif" font-size="15" fill="#9A968F" text-anchor="middle">
+                <line x1="0" y1="410" x2="565" y2="410" stroke="#9A968F"/>
+                <g stroke="#9A968F"><line x1="0" y1="403" x2="0" y2="417"/><line x1="120" y1="403" x2="120" y2="417"/><line x1="150" y1="403" x2="150" y2="417"/><line x1="550" y1="403" x2="550" y2="417"/><line x1="565" y1="403" x2="565" y2="417"/></g>
+                <text x="60" y="438">120</text><text x="135" y="458">30</text><text x="350" y="438">400</text><text x="560" y="458">15</text>
+                <text x="0" y="-14" text-anchor="start" fill="#EDE8DF">Улица</text><text x="565" y="-14" text-anchor="end" fill="#EDE8DF">Комната</text>
               </g>
             </g>
           </svg>
         </div>
         <ol class="layers">
-          <li data-l="1"><button type="button" data-l="1"><b>Клинкерный кирпич</b><span class="mm">120 мм</span><small>Не впитывает воду, не выцветает и не требует покраски</small></button></li>
-          <li data-l="2"><button type="button" data-l="2"><b>Вентзазор и гибкие связи</b><span class="mm">30 мм</span><small>Выводит влагу из стены. Базальтовые связи, по 4 штуки на квадратный метр</small></button></li>
-          <li data-l="3"><button type="button" data-l="3"><b>Газобетон D400</b><span class="mm">400 мм</span><small>Несущая и тёплая стена, армирование каждого четвёртого ряда</small></button></li>
-          <li data-l="4"><button type="button" data-l="4"><b>Гипсовая штукатурка</b><span class="mm">15 мм</span><small>Машинное нанесение по маякам, сразу готова под покраску</small></button></li>
+          <li data-l="1"><button type="button" data-l="1"><b>Клинкерный кирпич</b><span class="mm">120</span><small>Не впитывает воду, не выцветает и не требует покраски</small></button></li>
+          <li data-l="2"><button type="button" data-l="2"><b>Вентзазор и связи</b><span class="mm">30</span><small>Выводит влагу из стены. Базальтовые гибкие связи, 4 штуки на м²</small></button></li>
+          <li data-l="3"><button type="button" data-l="3"><b>Газобетон D400</b><span class="mm">400</span><small>Несущая и тёплая стена, армирование каждого четвёртого ряда</small></button></li>
+          <li data-l="4"><button type="button" data-l="4"><b>Штукатурка</b><span class="mm">15</span><small>Гипсовая, машинное нанесение по маякам, готова под покраску</small></button></li>
         </ol>
       </div>
     </div>
   </section>
-
-  <section class="sec" style="background:var(--white)" aria-labelledby="prT">
-    <div class="wrap">
-      <div class="head"><h2 class="t-1" id="prT">Что мы не отдаём подрядчикам</h2></div>
-      <div class="cols3">
-        <div><h3>Смету</h3><p>Сметчики считают каждый материал до заливки фундамента. Если ошиблись мы, разницу оплачиваем тоже мы.</p></div>
-        <div><h3>Бригады</h3><p>22 бригады в штате компании, без субподряда на коробке и инженерии. Прораб ведёт не больше трёх объектов.</p></div>
-        <div><h3>Контроль качества</h3><p>Инженер технадзора подчиняется директору по качеству, а не прорабу. Акты скрытых работ с фото доступны вам онлайн.</p></div>
-      </div>
+  <div class="split">
+    <div class="ph"><img src="assets/img/rebar.jpg" alt="Армирование монолитной плиты фундамента" loading="lazy"></div>
+    <div class="rows">
+      <div><h3>Фундамент</h3><p>Монолитная плита 300 мм из бетона B25, двойная сетка арматуры, утеплитель XPS 100 мм и дренаж по периметру.</p></div>
+      <div><h3>Перекрытия</h3><p>Монолитные 200 мм без пустотных плит и балок. Второй этаж можно планировать свободно.</p></div>
+      <div><h3>Кровля</h3><p>Каменная вата 250 мм в два слоя со смещением швов, диффузионная мембрана.</p></div>
+      <div><h3>Окна</h3><p>Двухкамерный стеклопакет с энергосберегающим стеклом, тёплый монтаж по ГОСТ 30971.</p></div>
     </div>
-  </section>
-
-  <section class="sec" aria-labelledby="konT">
-    <div class="wrap photo-text">
-      <div class="ph"><img src="assets/img/rebar.jpg" alt="Армирование монолитной плиты фундамента" loading="lazy"></div>
-      <div>
-        <h2 class="t-1" id="konT">Конструкции</h2>
-        <dl class="dl" style="margin-top:32px">
-          <div><dt>Фундамент</dt><dd>Монолитная плита 300 мм из бетона B25, двойная сетка арматуры, утеплитель XPS 100 мм и дренаж по периметру</dd></div>
-          <div><dt>Перекрытия</dt><dd>Монолитные 200 мм, без пустотных плит и балок. Второй этаж можно планировать свободно</dd></div>
-          <div><dt>Кровля</dt><dd>Каменная вата 250 мм в два слоя со смещением швов, диффузионная мембрана</dd></div>
-          <div><dt>Окна</dt><dd>Двухкамерный стеклопакет с энергосберегающим стеклом, тёплый монтаж по ГОСТ 30971</dd></div>
-        </dl>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" style="background:var(--sage)" aria-labelledby="grT">
-    <div class="wrap two">
-      <div><h2 class="t-1" id="grT">Гарантия</h2><p class="t-lead mute" style="margin-top:20px">Сроки прописаны в договоре. Гарантийный инженер выезжает в течение трёх рабочих дней.</p></div>
-      <ul class="years">
+  </div>
+  <section class="sec" aria-labelledby="grT">
+    <div class="g"><div class="c-l tag">( Гарантия )</div><div class="c-r" style="margin-bottom:clamp(32px,4vw,64px)"><h2 class="d-1" id="grT"><span class="thin">Гарантия</span> <b>в договоре</b></h2><p class="ash" style="margin-top:20px;max-width:34em">Гарантийный инженер выезжает в течение трёх рабочих дней.</p></div>
+      <ul class="years c-r">
         <li><b>15 лет</b><div><h3>Фундамент и несущие стены</h3><p>Трещины, осадка, протечки через фундамент</p></div></li>
         <li><b>10 лет</b><div><h3>Кровля</h3><p>Протечки, повреждение покрытия и водостока</p></div></li>
         <li><b>5 лет</b><div><h3>Инженерные системы</h3><p>Отопление, водоснабжение, канализация, электрика</p></div></li>

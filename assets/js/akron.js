@@ -25,24 +25,23 @@
     ['contacts', 'contacts.html', 'Контакты']
   ];
   var cur = page === 'project' ? 'projects' : page;
-  var logo = '<svg viewBox="0 0 30 30" aria-hidden="true"><path d="M2 26 L15 4 L28 26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M9 17 H21" stroke="currentColor" stroke-width="2.2"/></svg>';
   var hd = $('#hd');
   if (hd) {
     hd.className = 'hd';
     hd.innerHTML =
-      '<div class="wrap hd-row">' +
-        '<a class="hd-logo" href="index.html" aria-label="Акрон, на главную">' + logo + 'Акрон</a>' +
+      '<div class="hd-row">' +
+        '<a class="hd-logo" href="index.html" aria-label="Акрон, на главную">Акрон</a>' +
         '<nav class="hd-nav" aria-label="Основное меню">' + nav.map(function (n) {
           return '<a href="' + n[1] + '"' + (n[0] === cur ? ' aria-current="page"' : '') + '>' + n[2] + '</a>';
         }).join('') + '</nav>' +
         '<span class="hd-phone num">+7 495 790-14-09</span>' +
-        '<a class="btn" href="contacts.html#form">Обсудить дом</a>' +
+        '<div style="display:flex"><a class="hd-cta" href="contacts.html#form">Обсудить дом</a>' +
         '<button class="hd-burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Открыть меню">' +
-          '<svg width="20" height="14" viewBox="0 0 20 14" aria-hidden="true"><path d="M0 1h20M0 7h20M0 13h20" stroke="currentColor" stroke-width="1.6"/></svg></button>' +
+          '<svg width="22" height="12" viewBox="0 0 22 12" aria-hidden="true"><path d="M0 1h22M0 11h22" stroke="currentColor" stroke-width="1.6"/></svg></button></div>' +
       '</div>' +
-      '<div class="wrap drawer" id="drawer" hidden>' + nav.map(function (n) {
+      '<div class="drawer pad" id="drawer" hidden>' + nav.map(function (n) {
         return '<a href="' + n[1] + '"' + (n[0] === cur ? ' aria-current="page"' : '') + '>' + n[2] + '</a>';
-      }).join('') + '<p>+7 495 790-14-09, ежедневно кроме воскресенья с 9 до 21</p></div>';
+      }).join('') + '<p>+7 495 790-14-09, пн–сб с 9 до 21</p></div>';
     var burger = $('.hd-burger', hd), drawer = $('#drawer');
     burger.addEventListener('click', function () {
       var open = drawer.hidden;
@@ -50,34 +49,31 @@
       burger.setAttribute('aria-expanded', String(open));
       burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
     });
-    var onScroll = function () { hd.classList.toggle('scrolled', window.scrollY > 8); };
-    window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
   }
 
   var ft = $('#ft');
   if (ft) {
     ft.className = 'ft';
     ft.innerHTML =
-      '<div class="wrap">' +
-        '<div class="ft-grid">' +
-          '<div><a class="hd-logo" href="index.html">' + logo + 'Акрон</a><p class="mute" style="margin-top:16px;max-width:22em">Проектируем и строим каменные дома в Московской области с 2009 года.</p></div>' +
-          '<div><h4>Компания</h4><a href="about.html">О компании</a><a href="technology.html">Технология</a><a href="objects.html">Построенные дома</a><a href="contacts.html">Контакты</a></div>' +
-          '<div><h4>Проекты</h4>' + D.projects.slice(0, 4).map(function (p) { return '<a href="project.html#' + p.slug + '">' + p.name + ', ' + p.area + ' м²</a>'; }).join('') + '<a href="projects.html">Все проекты</a></div>' +
-          '<div><h4>Связаться</h4><p class="big num">+7 495 790-14-09</p><p>hello@akron.example</p><p class="mute" style="margin-top:12px">Москва, Пресненская наб., 10, блок C</p></div>' +
-        '</div>' +
-        '<div class="ft-bottom"><span>© 2009–2026 Акрон</span><span>Концепт-проект для портфолио. Компания, проекты и цены вымышлены</span></div>' +
-      '</div>';
+      '<div class="g cols">' +
+        '<div><h4>Акрон</h4><p style="max-width:20em">Проектируем и строим каменные дома в Московской области с 2009 года.</p></div>' +
+        '<div><h4>Компания</h4><a href="about.html">О компании</a><a href="technology.html">Технология</a><a href="objects.html">Построенные дома</a><a href="contacts.html">Контакты</a></div>' +
+        '<div><h4>Проекты</h4>' + D.projects.slice(0, 4).map(function (p) { return '<a href="project.html#' + p.slug + '">' + p.name + ', ' + p.area + ' м²</a>'; }).join('') + '<a href="projects.html">Все проекты</a></div>' +
+        '<div><h4>Связаться</h4><p class="big num">+7 495 790-14-09</p><p style="margin-top:8px">hello@akron.example</p><p>Москва, Пресненская наб., 10, блок C</p></div>' +
+      '</div>' +
+      '<div class="ft-word pad" aria-hidden="true"><svg viewBox="0 0 1600 260"><text x="0" y="236" textLength="1600" lengthAdjust="spacingAndGlyphs" font-family="Unbounded, sans-serif" font-weight="800" font-size="300" fill="rgba(237,232,223,.05)">АКРОН</text></svg></div>' +
+      '<div class="ft-bot pad"><span>© 2009–2026 Акрон</span><span>Концепт-проект для портфолио. Компания, проекты и цены вымышлены</span></div>';
   }
 
   /* ---------- Общие фрагменты ---------- */
   function img(name, alt, eager) {
     return '<img src="' + IMG + name + '.jpg" alt="' + esc(alt) + '"' + (eager ? '' : ' loading="lazy"') + '>';
   }
-  function pj(p, big) {
-    return '<a class="pj' + (big ? ' pj--big' : '') + '" href="project.html#' + p.slug + '">' +
-      '<div class="ph">' + img(p.img, 'Дом по проекту «' + p.name + '»') + '</div>' +
-      '<div class="meta"><h3>' + p.name + '</h3><span class="price">от ' + mln(priceFrom(p)) + '</span></div>' +
-      '<p class="facts-line">' + p.area + ' м², ' + p.floors + ' ' + plural(p.floors, 'этаж', 'этажа', 'этажей') + ', ' + p.bedrooms + ' ' + plural(p.bedrooms, 'спальня', 'спальни', 'спален') + ', стройка ' + p.months + ' мес.</p>' +
+  function pj(p) {
+    return '<a class="pj" href="project.html#' + p.slug + '">' +
+      '<div class="ph">' + img(p.img, 'Дом по проекту «' + p.name + '»') + (p.tag ? '<span class="tg">' + p.tag + '</span>' : '') + '</div>' +
+      '<div class="row"><h3>' + p.name + '</h3><span class="price">от ' + mln(priceFrom(p)) + '</span></div>' +
+      '<p>' + p.area + ' м², ' + p.floors + ' ' + plural(p.floors, 'этаж', 'этажа', 'этажей') + ', ' + p.bedrooms + ' ' + plural(p.bedrooms, 'спальня', 'спальни', 'спален') + ', стройка ' + p.months + ' мес.</p>' +
     '</a>';
   }
   function home(o) {
@@ -85,26 +81,41 @@
     return '<a class="home" href="project.html#' + p.slug + '">' +
       '<div class="ph">' + img(o.img, o.name) + '</div>' +
       '<h3>' + o.name + '</h3>' +
-      '<p>' + o.place + ', ' + o.year + '. Проект «' + p.name + '», ' + p.area + ' м², построен за ' + o.months + ' мес.</p></a>';
+      '<p>' + o.place + ', ' + o.year + '. Проект «' + p.name + '», ' + p.area + ' м², ' + o.months + ' мес.</p></a>';
   }
 
-  /* ---------- Шторка «проект ↔ дом» ---------- */
-  var cmp = $('.compare');
-  if (cmp) {
-    var range = $('input', cmp);
-    var setPos = function (v) { cmp.style.setProperty('--pos', v + '%'); };
-    range.addEventListener('input', function () { cmp.classList.remove('hint'); setPos(range.value); });
-    setPos(range.value);
-    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      cmp.classList.add('hint');
-      cmp.addEventListener('animationend', function () { cmp.classList.remove('hint'); setPos(range.value); });
-    }
+  /* ---------- Распил: фото нарезано вертикальными полосами ---------- */
+  function saw(el, name) {
+    el.innerHTML = Array.apply(null, Array(7)).map(function (_, k) {
+      return '<i style="--k:' + k + '"><img src="' + IMG + name + '.jpg" alt=""' + (k ? ' loading="lazy"' : '') + '></i>';
+    }).join('');
+  }
+  document.querySelectorAll('[data-saw]').forEach(function (el) { saw(el, el.dataset.saw); });
+
+  /* ---------- Каталог полосами ---------- */
+  var strips = $('#strips');
+  if (strips) {
+    strips.innerHTML = D.projects.map(function (p, i) {
+      return '<div class="strip' + (i === 0 ? ' on' : '') + '" role="button" tabindex="0" aria-expanded="' + (i === 0) + '" aria-label="Проект «' + p.name + '», ' + p.area + ' м²">' +
+        img(p.img, '') +
+        '<span class="v">' + p.name + '<small>' + p.area + ' м²</small></span>' +
+        '<div class="info"><h3>' + p.name + '</h3><p>' + p.area + ' м², ' + p.floors + ' ' + plural(p.floors, 'этаж', 'этажа', 'этажей') + ', ' + p.bedrooms + ' ' + plural(p.bedrooms, 'спальня', 'спальни', 'спален') + '. Тёплый контур от ' + mln(priceFrom(p)) + ', стройка ' + p.months + ' мес.</p>' +
+        '<a class="btn btn--brass" href="project.html#' + p.slug + '" tabindex="-1">Открыть проект</a></div></div>';
+    }).join('');
+    var open = function (s) {
+      strips.querySelectorAll('.strip').forEach(function (x) {
+        var on = x === s; x.classList.toggle('on', on); x.setAttribute('aria-expanded', String(on));
+        x.querySelector('.btn').tabIndex = on ? 0 : -1;
+      });
+    };
+    strips.addEventListener('click', function (e) { var s = e.target.closest('.strip'); if (s && !e.target.closest('.btn')) open(s); });
+    strips.addEventListener('keydown', function (e) { var s = e.target.closest('.strip'); if (s && e.target === s && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); open(s); } });
+    if (matchMedia('(hover: hover)').matches) strips.addEventListener('mouseover', function (e) { var s = e.target.closest('.strip'); if (s && !s.classList.contains('on')) open(s); });
+    strips.querySelectorAll('.strip')[0].querySelector('.btn').tabIndex = 0;
   }
 
   /* ---------- Главная ---------- */
   if (page === 'home') {
-    var f = ['ladoga', 'nerl', 'istra'].map(function (s) { return byslug[s]; });
-    $('#feature').innerHTML = pj(f[0], true) + '<div class="stack">' + pj(f[1]) + pj(f[2]) + '</div>';
     $('#homes').innerHTML = D.objects.slice(0, 4).map(home).join('');
     drawKits($('#kits'));
   }
@@ -177,9 +188,9 @@
       var p = curP();
       document.title = 'Проект «' + p.name + '» — Акрон';
       $('#pjCrumb').textContent = p.name;
-      $('#pjName').textContent = 'Проект «' + p.name + '»';
+      $('#pjName').innerHTML = '<span class="thin">Проект</span> <b>' + p.name + '</b>';
       $('#pjAbout').textContent = p.about;
-      $('#pjCover').innerHTML = img(p.img, 'Дом по проекту «' + p.name + '»', true);
+      saw($('#pjCover'), p.img);
       $('#pjPrice').textContent = 'от ' + mln(priceFrom(p));
       $('#pjSpecs').innerHTML = [
         [p.area + ' м²', 'общая площадь'], [p.size + ' м', 'габариты дома'], [p.floors, plural(p.floors, 'этаж', 'этажа', 'этажей')],
@@ -218,17 +229,17 @@
       if (w >= h) { split(a, x, y, w * t, h); split(b, x + w * t, y, w * (1 - t), h); }
       else { split(a, x, y, w, h * t); split(b, x, y + h * t, w, h * (1 - t)); }
     })(rooms, pad, pad, W, H);
-    var font = 'Jost, sans-serif';
+    var font = 'Onest, sans-serif';
     $('#pjPlan').innerHTML = '<svg viewBox="0 0 ' + (W + pad * 2) + ' ' + (H + pad * 2) + '" role="img" aria-label="Схема планировки, ' + fl.name + '">' +
-      '<rect x="' + (pad - 5) + '" y="' + (pad - 5) + '" width="' + (W + 10) + '" height="' + (H + 10) + '" fill="none" stroke="#1C2420" stroke-width="10"/>' +
+      '<rect x="' + (pad - 5) + '" y="' + (pad - 5) + '" width="' + (W + 10) + '" height="' + (H + 10) + '" fill="none" stroke="#EDE8DF" stroke-width="10"/>' +
       rects.map(function (q) {
         var big = q.w > 120 && q.h > 80;
         return '<g data-i="' + q.r.i + '"><rect class="room-rect" x="' + q.x + '" y="' + q.y + '" width="' + q.w + '" height="' + q.h + '"/>' +
-          '<text x="' + (q.x + 12) + '" y="' + (q.y + 26) + '" font-family="' + font + '" font-size="16" fill="#5F6962">' + (q.r.i + 1) + '</text>' +
-          (big ? '<text x="' + (q.x + 12) + '" y="' + (q.y + q.h - 16) + '" font-family="' + font + '" font-size="17" fill="#1C2420">' + q.r.name + ', ' + q.r.a + ' м²</text>' : '') + '</g>';
+          '<text x="' + (q.x + 12) + '" y="' + (q.y + 26) + '" font-family="' + font + '" font-size="16" fill="#9A968F">' + (q.r.i + 1) + '</text>' +
+          (big ? '<text x="' + (q.x + 12) + '" y="' + (q.y + q.h - 16) + '" font-family="' + font + '" font-size="17" fill="#EDE8DF">' + q.r.name + ', ' + q.r.a + ' м²</text>' : '') + '</g>';
       }).join('') +
-      '<text x="' + (pad + W / 2) + '" y="' + (pad - 14) + '" text-anchor="middle" font-family="' + font + '" font-size="15" fill="#5F6962">' + String(fl.w).replace('.', ',') + ' м</text>' +
-      '<text x="' + (pad - 14) + '" y="' + (pad + H / 2) + '" text-anchor="middle" font-family="' + font + '" font-size="15" fill="#5F6962" transform="rotate(-90 ' + (pad - 14) + ' ' + (pad + H / 2) + ')">' + String(fl.h).replace('.', ',') + ' м</text>' +
+      '<text x="' + (pad + W / 2) + '" y="' + (pad - 14) + '" text-anchor="middle" font-family="' + font + '" font-size="15" fill="#9A968F">' + String(fl.w).replace('.', ',') + ' м</text>' +
+      '<text x="' + (pad - 14) + '" y="' + (pad + H / 2) + '" text-anchor="middle" font-family="' + font + '" font-size="15" fill="#9A968F" transform="rotate(-90 ' + (pad - 14) + ' ' + (pad + H / 2) + ')">' + String(fl.h).replace('.', ',') + ' м</text>' +
       '</svg>';
     $('#pjRooms').innerHTML = rooms.map(function (r) {
       return '<li data-i="' + r.i + '"><span class="n">' + (r.i + 1) + '</span><span>' + r.name + '</span><span class="a">' + r.a + ' м²</span></li>';
