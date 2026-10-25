@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Проекты домов — Акрон</title>
+<meta name="description" content="Каталог проектов каменных домов Акрон.">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="assets/css/akron.css">
+</head>
+<body data-page="projects" data-solid="1">
+<header id="hd"></header>
+<main>
+  <div class="page-top"></div>
+  <div class="pad head-band">
+    <p class="crumbs mono"><a href="index.html">Главная</a> / Проекты</p>
+    <div class="halves" style="align-items:end"><h1 class="h-xl">Проекты домов</h1><p class="text">Каждый проект построен минимум трижды. Планировку, фасад и материал стен адаптируем под участок без доплаты.</p></div>
+  </div>
+
+  <section class="pad" style="padding-bottom:var(--sec)" aria-label="Каталог">
+    <div class="filters" id="filters" role="group" aria-label="Фильтры проектов"></div>
+    <div class="grid3" id="cards"></div>
+  </section>
+  <section class="dark sec" id="form" aria-labelledby="ctaT">
+    <div class="pad halves">
+      <div><h2 class="h-1" id="ctaT">Нужен свой проект?</h2><p class="text" style="margin-top:32px;color:rgba(255,255,255,.75)">Архитектор спроектирует дом с нуля за 6–8 недель. Проект стоит 2 400 ₽ за м², при строительстве у нас эта сумма вычитается из сметы.</p></div>
+      <div>
+        <form class="form" novalidate>
+          <div class="row2">
+            <label for="lName">Имя<input id="lName" name="name" autocomplete="name" placeholder="Как к вам обращаться"></label>
+            <label for="lPhone">Телефон<input id="lPhone" name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label>
+          </div>
+          <label for="lProject">Проект<select id="lProject" name="project"></select></label>
+          <label for="lNote">Участок<input id="lNote" name="note" placeholder="Кадастровый номер или округ"></label>
+          <p class="err" role="alert" hidden></p>
+          <button class="btn d" type="submit">Обсудить проект</button>
+          <p class="fine">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+        </form>
+        <div class="sent" hidden><p class="h-2">Заявка отправлена</p><p style="color:rgba(255,255,255,.75)">Архитектор позвонит на номер <span data-phone class="num"></span> в течение часа.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer id="ft"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/akron.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Контакты — Акрон</title>
+<meta name="description" content="Офис Акрон в Москве и шоурум в Истре.">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=JetBrains+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="assets/css/akron.css">
+</head>
+<body data-page="contacts" data-solid="1">
+<header id="hd"></header>
+<main>
+  <div class="page-top"></div>
+  <div class="pad head-band">
+    <p class="crumbs mono"><a href="index.html">Главная</a> / Контакты</p>
+    <div class="halves" style="align-items:end"><h1 class="h-xl">Контакты</h1><p class="text">Встречи с архитектором проходят в офисе в Москве. Материалы можно посмотреть в шоуруме в Истре.</p></div>
+  </div>
+
+  <section class="pad" style="padding-bottom:var(--sec)" aria-label="Адреса и телефоны">
+    <div class="contact-grid">
+      <div class="addr">
+        <div><span class="mono mute">Телефон</span><span class="v big num">+7 495 790-14-09</span><button class="copy" type="button" data-copy="+74957901409">Скопировать</button></div>
+        <div><span class="mono mute">Почта</span><span class="v">hello@akron.example</span><button class="copy" type="button" data-copy="hello@akron.example">Скопировать</button></div>
+        <div><span class="mono mute">Офис</span><span class="v">Москва, Пресненская наб., 10, блок C, 14 этаж</span><span class="mute">Пн–сб, с 9 до 21, встречи по записи</span></div>
+        <div><span class="mono mute">Шоурум материалов</span><span class="v">Истра, Волоколамское шоссе, 54 км</span><span class="mute">Сб и вс, с 10 до 18</span></div>
+      </div>
+      <div class="map">
+        <svg viewBox="0 0 640 560" role="img" aria-label="Схема: офис в Москве и шоурум в Истре по Волоколамскому шоссе">
+          <g fill="none" stroke="#DADADA" stroke-width="1.5"><circle cx="390" cy="320" r="120"/><circle cx="390" cy="320" r="56"/></g>
+          <circle cx="390" cy="320" r="190" fill="none" stroke="#000" stroke-width="2"/>
+          <g stroke="#DADADA" stroke-width="2"><line x1="390" y1="320" x2="40" y2="70"/><line x1="390" y1="320" x2="390" y2="0"/><line x1="390" y1="320" x2="640" y2="150"/><line x1="390" y1="320" x2="640" y2="480"/><line x1="390" y1="320" x2="290" y2="560"/><line x1="390" y1="320" x2="0" y2="350"/></g>
+          <path d="M390 320 L112 121" stroke="#000" stroke-width="3"/>
+          <g font-family="JetBrains Mono, monospace" font-size="13" fill="#6E6E6E"><text x="560" y="310">МКАД</text><text x="60" y="60">ВОЛОКОЛАМСКОЕ Ш.</text><text x="14" y="340">МИНСКОЕ Ш.</text><text x="400" y="22">ДМИТРОВСКОЕ Ш.</text></g>
+          <rect x="358" y="302" width="20" height="20" fill="#000"/>
+          <text x="388" y="296" font-family="Inter Tight, sans-serif" font-weight="500" font-size="20" fill="#000">Офис</text>
+          <rect x="102" y="111" width="20" height="20" fill="#fff" stroke="#000" stroke-width="2"/>
+          <text x="132" y="152" font-family="Inter Tight, sans-serif" font-weight="500" font-size="20" fill="#000">Шоурум, Истра</text>
+          <text x="132" y="174" font-family="Inter Tight, sans-serif" font-size="15" fill="#6E6E6E">54 км от МКАД</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+  <section class="dark sec" id="form" aria-labelledby="ctaT">
+    <div class="pad halves">
+      <div><h2 class="h-1" id="ctaT">Обсудим ваш дом</h2><p class="text" style="margin-top:32px;color:rgba(255,255,255,.75)">Если знаете кадастровый номер участка, укажите его: посмотрим участок до звонка.</p></div>
+      <div>
+        <form class="form" novalidate>
+          <div class="row2">
+            <label for="cName">Имя<input id="cName" name="name" autocomplete="name" placeholder="Как к вам обращаться"></label>
+            <label for="cPhone">Телефон<input id="cPhone" name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label>
+          </div>
+          <label for="cProject">Проект<select id="cProject" name="project"></select></label>
+          <label for="cNote">Участок<input id="cNote" name="note" placeholder="Кадастровый номер или округ"></label>
+          <p class="err" role="alert" hidden></p>
+          <button class="btn d" type="submit">Отправить заявку</button>
+          <p class="fine">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+        </form>
+        <div class="sent" hidden><p class="h-2">Заявка отправлена</p><p style="color:rgba(255,255,255,.75)">Архитектор позвонит на номер <span data-phone class="num"></span> в течение часа.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer id="ft"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/akron.js"></script>
+</body>
+</html>
