@@ -547,3 +547,40 @@ p { margin: 0; }
 .kit9 li { padding: 9px 0; border-bottom: 1px solid var(--line); }
 .kit9 li:first-child { color: var(--mute); }
 .kits9-foot { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 56px; font-size: 15px; }
+
+/* Первый экран, вариант C: фото во весь экран и карточка с фронтоном */
+.hero8 { position: relative; margin-top: 84px; height: max(600px, calc(100svh - 84px)); color: var(--white); background: var(--black); overflow: hidden; }
+@media (max-width: 860px) { .hero8 { margin-top: 68px; height: auto; background: var(--white); color: var(--black); } }
+.h8-pics { position: absolute; inset: 0; }
+.h8-pics img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .8s ease; }
+.h8-pics img.on { opacity: 1; }
+.h8-pics::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(20, 18, 16, .62), rgba(20, 18, 16, 0) 55%); }
+@media (max-width: 860px) { .h8-pics { position: relative; aspect-ratio: 4 / 5; } }
+.h8-in { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 400px); gap: 32px var(--pad); align-items: end; padding-bottom: var(--pad); }
+@media (max-width: 860px) { .h8-in { position: static; grid-template-columns: 1fr; padding-top: 24px; } }
+.h8-title { display: grid; gap: 22px; justify-items: start; }
+.h8-title h1 { font-size: clamp(52px, 7vw, 128px); max-width: 10em; }
+.h8-title .text { max-width: 24em; color: rgba(255, 255, 255, .86); }
+.h8-ghost { background: transparent; color: var(--white); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .7); }
+.h8-ghost:hover { background: var(--white); color: var(--black); }
+@media (max-width: 860px) {
+  .h8-title { position: static; color: var(--black); }
+  .h8-title .text { color: var(--mute); }
+  .h8-title .btn:not(.btn--dark):not(.h8-ghost) { background: var(--black); color: var(--white); }
+  .h8-ghost { color: var(--black); box-shadow: inset 0 0 0 1px var(--black); }
+}
+.h8-card { background: var(--white); color: var(--black); padding: 74px 22px 18px; display: grid; gap: 14px;
+  clip-path: polygon(0 52px, 50% 0, 100% 52px, 100% 100%, 0 100%); animation: card-roof 1.1s cubic-bezier(.2, .7, .1, 1) .3s both; }
+@keyframes card-roof { from { clip-path: polygon(0 52px, 50% 52px, 100% 52px, 100% 100%, 0 100%); } to { clip-path: polygon(0 52px, 50% 0, 100% 52px, 100% 100%, 0 100%); } }
+@media (max-width: 860px) { .h8-card { background: var(--stone); } }
+.h8-k { font-size: 15px; }
+.h8-card h2 { font-size: clamp(28px, 2.4vw, 40px); }
+.h8-card dl { display: grid; grid-template-columns: 1fr 1fr; margin: 0; border-top: 1px solid var(--black); }
+.h8-card dl div { padding-top: 10px; }
+.h8-card dt { font-size: 14px; color: var(--mute); }
+.h8-card dd { margin: 2px 0 0; font-size: 24px; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.h8-nav { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 6px; border-top: 1px solid var(--line); }
+.h8-link { font-size: 16px; text-underline-offset: 4px; }
+.h8-arr { display: flex; align-items: center; gap: 6px; font-size: 15px; }
+.h8-arr button { width: 44px; height: 44px; border: 0; background: none; color: var(--black); cursor: pointer; display: grid; place-items: center; }
+.h8-arr button:hover { background: var(--black); color: var(--white); }

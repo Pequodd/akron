@@ -138,6 +138,20 @@
         });
       });
     }
+    // первый экран: дома на фото и карточка с фронтоном
+    var h8 = $('#h8Pics');
+    if (h8) {
+      var h8i = h8.querySelectorAll('img'), h8d = document.querySelectorAll('.h8-data i'), hc = 0;
+      var showH8 = function (n) {
+        hc = (n + h8i.length) % h8i.length;
+        h8i.forEach(function (im, i) { im.classList.toggle('on', i === hc); });
+        var d = h8d[hc].dataset;
+        $('#h8Year').textContent = d.year; $('#h8Place').textContent = d.place; $('#h8Area').textContent = d.area; $('#h8Time').textContent = d.time;
+        $('#h8Link').href = 'project.html#' + d.slug; $('#h8Count').textContent = (hc + 1) + ' из ' + h8i.length;
+      };
+      $('#h8Prev').onclick = function () { showH8(hc - 1); };
+      $('#h8Next').onclick = function () { showH8(hc + 1); };
+    }
     // карусель проектов
     var rail = $('#rail');
     rail.innerHTML = D.projects.map(function (p) { return pj(p); }).join('');
