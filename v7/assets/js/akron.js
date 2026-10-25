@@ -162,34 +162,27 @@
     $('#mosaic').innerHTML = D.objects.slice(0, 4).map(function (o) {
       return '<a href="project.html#' + o.project + '">' + img(o.img, o.name) + '<span>' + o.name + ', ' + o.place + '</span></a>';
     }).join('');
-    // стоимость: выбор стадии, площадь и что входит
-    var kitPics = { box: ['rebar', 'Коробка: плита, стены и кровля'], warm: ['s-wood', 'Тёплый контур: окна и фасад'], white: ['i-white', 'White box: инженерия и черновая отделка'], key: ['i-long', 'Под ключ: можно заезжать'] };
-    var steps = [['Фундамент, стены, перекрытия, кровля', 0], ['Окна и входная дверь', 1], ['Утеплённый фасад', 1], ['Отопление, вода, канализация, электрика', 2], ['Стяжка и штукатурка стен', 2], ['Чистовая отделка по дизайн-проекту', 3], ['Сантехника, свет, благоустройство у дома', 3]];
-    var ks = 1;
-    $('#p7Kits').innerHTML = D.kits.map(function (k, i) {
-      return '<button type="button" role="radio" class="p7-kit" data-i="' + i + '" aria-checked="' + (i === ks) + '"><span class="nm">' + k.name + '</span><span class="pr num">' + rub.format(k.per) + ' ₽<small> за м²</small></span><span class="ds">' + k.desc + '</span></button>';
+    // стоимость: комплектация проявляет слои на чертеже
+    var ks = 1, svgEl = $('#p8Svg'), selP = $('#p8Proj');
+    var incl = ['Фундамент, стены, перекрытия и кровля', 'Окна, входная дверь и утеплённый фасад', 'Отопление, вода, электрика, стяжка и штукатурка', 'Чистовая отделка, сантехника, свет и благоустройство'];
+    $('#p8Kits').innerHTML = D.kits.map(function (k, i) {
+      return '<button type="button" role="radio" class="p8-kit" data-i="' + i + '" aria-checked="' + (i === ks) + '"><span class="st-n">Стадия ' + (i + 1) + '</span><span class="nm">' + k.name + '</span><span class="pr num">' + rub.format(k.per) + ' ₽ <small>за м²</small></span><span class="ds">' + (i ? '+ ' : '') + incl[i] + '</span></button>';
     }).join('');
-    $('#p7Pic').innerHTML = D.kits.map(function (k) { return '<img src="assets/img/' + kitPics[k.id][0] + '.jpg" alt="' + kitPics[k.id][1] + '" loading="lazy">'; }).join('') + '<span class="badge" id="p7Badge"></span>';
-    var drawP7 = function () {
-      var k = D.kits[ks], area = +$('#p7Area').value;
-      document.querySelectorAll('.p7-kit').forEach(function (b, i) { b.setAttribute('aria-checked', String(i === ks)); });
-      document.querySelectorAll('#p7Pic img').forEach(function (im, i) { im.classList.toggle('on', i === ks); });
-      $('#p7Badge').textContent = kitPics[k.id][1];
-      $('#p7AreaOut').textContent = area + ' м²';
-      $('#p7Kit').textContent = k.name + ', ' + area + ' м²';
-      $('#p7Sum').textContent = 'от ' + mln(k.per * area);
-      $('#p7Inc').innerHTML = steps.map(function (st) {
-        var on = st[1] <= ks, isNew = st[1] === ks && ks > 0;
-        return '<li class="' + (on ? 'on' : 'off') + (isNew ? ' new' : '') + '"><span class="ic" aria-hidden="true">' + (on ? '<svg viewBox="0 0 20 20"><path d="M4 10.5 L8.5 15 L16 5.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>' : '') + '</span>' + st[0] + (isNew ? '<em>добавляется</em>' : '') + (on ? '' : '<span class="sr">, не входит</span>') + '</li>';
-      }).join('');
+    selP.innerHTML = D.projects.map(function (p) { return '<option value="' + p.slug + '"' + (p.slug === 'ladoga' ? ' selected' : '') + '>«' + p.name + '», ' + p.area + ' м²</option>'; }).join('');
+    var drawP8 = function () {
+      var k = D.kits[ks], p = byslug[selP.value];
+      document.querySelectorAll('.p8-kit').forEach(function (b, i) { b.setAttribute('aria-checked', String(i === ks)); b.tabIndex = i === ks ? 0 : -1; });
+      svgEl.querySelectorAll('.st').forEach(function (g) { var s = +g.dataset.s; g.setAttribute('class', 'st ' + (s < ks ? 'past' : s === ks ? 'cur' : 'fut')); });
+      $('#p8Kit').textContent = k.name;
+      $('#p8Sum').textContent = 'от ' + mln(k.per * p.area);
     };
-    $('#p7Kits').addEventListener('click', function (e) { var b = e.target.closest('.p7-kit'); if (b) { ks = +b.dataset.i; drawP7(); } });
-    $('#p7Kits').addEventListener('keydown', function (e) {
-      if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp' && e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-      e.preventDefault(); ks = (ks + (e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : 3)) % 4; drawP7(); document.querySelectorAll('.p7-kit')[ks].focus();
+    $('#p8Kits').addEventListener('click', function (e) { var b = e.target.closest('.p8-kit'); if (b) { ks = +b.dataset.i; drawP8(); } });
+    $('#p8Kits').addEventListener('keydown', function (e) {
+      var d = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: 3, ArrowUp: 3 }[e.key]; if (!d) return;
+      e.preventDefault(); ks = (ks + d) % 4; drawP8(); document.querySelectorAll('.p8-kit')[ks].focus();
     });
-    $('#p7Area').addEventListener('input', drawP7);
-    drawP7();
+    selP.addEventListener('change', drawP8);
+    drawP8();
   }
 
   function drawKits(el) {
