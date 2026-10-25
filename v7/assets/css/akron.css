@@ -431,3 +431,7 @@ p { margin: 0; }
 .mosaic a:nth-child(4) { grid-column: span 8; aspect-ratio: auto; }
 @media (max-width: 760px) { .mosaic a:nth-child(n) { grid-column: 1 / -1; aspect-ratio: 4 / 3; } }
 .wall-mini .p span { left: auto; right: 0; }
+/* блок «Мы проектируем…» по центру */
+.inline-photos { margin-inline: auto; text-align: center; }
+.facts7 { text-align: center; }
+.facts7 span { margin-inline: auto; }
