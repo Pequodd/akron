@@ -527,3 +527,23 @@ p { margin: 0; }
 .p8-sel::after { content: ""; position: absolute; right: .15em; top: 50%; width: .35em; height: .35em; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: translateY(-70%) rotate(45deg); pointer-events: none; }
 .p8-sel select:focus-visible { outline: 2px solid var(--black); outline-offset: 4px; }
 .p8-cta { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; font-size: 15px; }
+
+/* Стоимость v7.3: четыре стадии карточками с фото */
+.kits9 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 56px var(--pad); }
+@media (max-width: 1100px) { .kits9 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .kits9 { grid-template-columns: 1fr; } }
+.kit9 { display: grid; gap: 14px; align-content: start; min-width: 0; }
+.kit9 .ph { position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: var(--pale); }
+.kit9 .ph img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.2, .7, .1, 1); }
+.kit9:hover .ph img { transform: scale(1.03); }
+.kit9 .pick { position: absolute; left: 12px; top: 12px; background: var(--white); padding: 7px 11px; font-size: 14px; }
+.kit9-top { display: grid; gap: 2px; padding-top: 4px; }
+.kit9-top h3 { font-size: clamp(26px, 2.2vw, 36px); letter-spacing: -.035em; font-weight: 500; line-height: 1.05; }
+.kit9-top span { font-size: 15px; }
+.kit9-pr { font-size: clamp(22px, 1.8vw, 30px); letter-spacing: -.03em; border-top: 1px solid var(--black); padding-top: 12px; }
+.kit9-pr small { font-size: 15px; letter-spacing: 0; color: var(--mute); }
+.kit9-ex { font-size: 16px; color: var(--mute); margin-top: -8px; }
+.kit9 ul { list-style: none; margin: 0; padding: 0; font-size: 16px; }
+.kit9 li { padding: 9px 0; border-bottom: 1px solid var(--line); }
+.kit9 li:first-child { color: var(--mute); }
+.kits9-foot { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 56px; font-size: 15px; }

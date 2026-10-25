@@ -162,27 +162,24 @@
     $('#mosaic').innerHTML = D.objects.slice(0, 4).map(function (o) {
       return '<a href="project.html#' + o.project + '">' + img(o.img, o.name) + '<span>' + o.name + ', ' + o.place + '</span></a>';
     }).join('');
-    // стоимость: комплектация проявляет слои на чертеже
-    var ks = 1, svgEl = $('#p8Svg'), selP = $('#p8Proj');
-    var incl = ['Фундамент, стены, перекрытия и кровля', 'Окна, входная дверь и утеплённый фасад', 'Отопление, вода, электрика, стяжка и штукатурка', 'Чистовая отделка, сантехника, свет и благоустройство'];
-    $('#p8Kits').innerHTML = D.kits.map(function (k, i) {
-      return '<button type="button" role="radio" class="p8-kit" data-i="' + i + '" aria-checked="' + (i === ks) + '"><span class="st-n">Стадия ' + (i + 1) + '</span><span class="nm">' + k.name + '</span><span class="pr num">' + rub.format(k.per) + ' ₽ <small>за м²</small></span><span class="ds">' + (i ? '+ ' : '') + incl[i] + '</span></button>';
-    }).join('');
-    selP.innerHTML = D.projects.map(function (p) { return '<option value="' + p.slug + '"' + (p.slug === 'ladoga' ? ' selected' : '') + '>«' + p.name + '», ' + p.area + ' м²</option>'; }).join('');
-    var drawP8 = function () {
-      var k = D.kits[ks], p = byslug[selP.value];
-      document.querySelectorAll('.p8-kit').forEach(function (b, i) { b.setAttribute('aria-checked', String(i === ks)); b.tabIndex = i === ks ? 0 : -1; });
-      svgEl.querySelectorAll('.st').forEach(function (g) { var s = +g.dataset.s; g.setAttribute('class', 'st ' + (s < ks ? 'past' : s === ks ? 'cur' : 'fut')); });
-      $('#p8Kit').textContent = k.name;
-      $('#p8Sum').textContent = 'от ' + mln(k.per * p.area);
+    // стоимость: четыре стадии карточками с фото
+    var kitInfo = {
+      box: ['s-white', 'Фасад до отделки', ['Монолитная плита', 'Стены и перекрытия', 'Кровля']],
+      warm: ['s-wood', 'Дом закрыт от погоды', ['Всё из коробки', 'Окна и входная дверь', 'Утеплённый фасад']],
+      white: ['i-white', 'Готово под чистовую', ['Всё из тёплого контура', 'Отопление, вода, электрика', 'Стяжка и штукатурка']],
+      key: ['i-long', 'Можно заезжать', ['Всё из white box', 'Отделка по дизайн-проекту', 'Свет, сантехника, участок']]
     };
-    $('#p8Kits').addEventListener('click', function (e) { var b = e.target.closest('.p8-kit'); if (b) { ks = +b.dataset.i; drawP8(); } });
-    $('#p8Kits').addEventListener('keydown', function (e) {
-      var d = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: 3, ArrowUp: 3 }[e.key]; if (!d) return;
-      e.preventDefault(); ks = (ks + d) % 4; drawP8(); document.querySelectorAll('.p8-kit')[ks].focus();
-    });
-    selP.addEventListener('change', drawP8);
-    drawP8();
+    var lad = byslug.ladoga;
+    $('#kits9').innerHTML = D.kits.map(function (k, i) {
+      var inf = kitInfo[k.id];
+      return '<article class="kit9">' +
+        '<div class="ph">' + img(inf[0], inf[1]) + (i === 1 ? '<span class="pick">Выбирают чаще</span>' : '') + '</div>' +
+        '<div class="kit9-top"><h3>' + k.name + '</h3><span class="mute">' + inf[1] + '</span></div>' +
+        '<p class="kit9-pr num">' + rub.format(k.per) + ' ₽ <small>за м²</small></p>' +
+        '<p class="kit9-ex num">«Ладога» от ' + mln(k.per * lad.area) + '</p>' +
+        '<ul>' + inf[2].map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>' +
+      '</article>';
+    }).join('');
   }
 
   function drawKits(el) {
