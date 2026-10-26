@@ -27,7 +27,7 @@
   var cur = page === 'project' ? 'projects' : page;
   // точечный круг, как в референсе
   // знак: силуэт дома с фронтоном
-  var dots = '<svg class="dots" viewBox="0 0 26 26" aria-hidden="true"><path d="M4 23 V11 L13 3.5 L22 11 V23 Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M10.5 23 V16.5 H15.5 V23" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
+  var dots = '';
   window.AKRON_DOTS = dots;
   document.querySelectorAll('.btn[data-dots], .btn.d').forEach(function (b) { b.insertAdjacentHTML('beforeend', dots); });
 
