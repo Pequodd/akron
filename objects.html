@@ -4,33 +4,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Построенные дома — Акрон</title>
-<meta name="description" content="Дома, которые построил Акрон в Московской области.">
-<meta name="theme-color" content="#F5F6F2">
+<meta name="description" content="Дома, которые построил Акрон.">
+<meta name="theme-color" content="#1F1C19">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/css/akron.css">
 </head>
-<body data-page="objects">
+<body data-page="objects" data-solid="1">
 <header id="hd"></header>
 <main>
-  <div class="wrap page-head">
-    <p class="crumbs"><a href="index.html">Главная</a> / Построенные дома</p>
-    <div class="two">
-      <h1 class="t-hero">Построенные дома</h1>
-      <p class="t-lead mute">340 домов в 14 округах Московской области. По субботам владельцы показывают свои дома тем, кто выбирает проект.</p>
-    </div>
+  <div class="page-top"></div>
+  <div class="pad head-band">
+    <p class="crumbs mono"><a href="index.html">Главная</a> / Построенные дома</p>
+    <div class="halves" style="align-items:end"><h1 class="h-xl">Построено</h1><p class="text">340 домов в 14 округах Московской области. По субботам владельцы показывают свои дома тем, кто выбирает проект.</p></div>
   </div>
 
-  <section class="wrap" style="padding-bottom:var(--sec)" aria-label="Построенные дома">
-    <div class="homes" id="homes"></div>
-  </section>
-  <section class="sec band" id="form" aria-labelledby="ctaT">
-    <div class="wrap two">
-      <div>
-        <h2 class="t-1" id="ctaT">Приезжайте на экскурсию</h2>
-        <p class="t-lead mute" style="margin-top:24px">Покажем дом на стадии коробки и уже обжитый дом того же проекта, чтобы было видно, что спрятано в стенах.</p>
-      </div>
+  <section class="pad duo" style="padding-bottom:var(--sec)" id="homes" aria-label="Построенные дома"></section>
+  <section class="dark sec" id="form" aria-labelledby="ctaT">
+    <div class="pad halves">
+      <div><h2 class="h-1" id="ctaT">Приезжайте в субботу</h2><p class="text" style="margin-top:32px;color:rgba(255,255,255,.75)">Покажем дом на стадии коробки и обжитый дом того же проекта, чтобы было видно, что спрятано в стенах.</p></div>
       <div>
         <form class="form" novalidate>
           <div class="row2">
@@ -38,12 +31,12 @@
             <label for="oPhone">Телефон<input id="oPhone" name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label>
           </div>
           <label for="oProject">Проект<select id="oProject" name="project"></select></label>
-          <label for="oNote">Участок или кадастровый номер<input id="oNote" name="note" placeholder="Например: 50:08:0050211:1093"></label>
+          <label for="oNote">Участок<input id="oNote" name="note" placeholder="Кадастровый номер или округ"></label>
           <p class="err" role="alert" hidden></p>
-          <button class="btn btn--light" type="submit">Записаться на экскурсию</button>
+          <button class="btn d" type="submit">Записаться на экскурсию</button>
           <p class="fine">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
         </form>
-        <div class="sent" hidden><p class="t-2">Заявка отправлена</p><p class="mute">Перезвоним на номер <span data-phone class="num"></span> и подберём ближайшую субботу.</p></div>
+        <div class="sent" hidden><p class="h-2">Заявка отправлена</p><p style="color:rgba(255,255,255,.75)">Перезвоним на номер <span data-phone class="num"></span> и подберём ближайшую субботу.</p></div>
       </div>
     </div>
   </section>

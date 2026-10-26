@@ -4,115 +4,91 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Акрон — каменные дома под ключ</title>
-<meta name="description" content="Акрон проектирует и строит каменные загородные дома в Московской области по фиксированной смете.">
-<meta name="theme-color" content="#F5F6F2">
+<meta name="description" content="Акрон проектирует и строит каменные дома в Московской области.">
+<meta name="theme-color" content="#1F1C19">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/css/akron.css">
 </head>
 <body data-page="home">
 <header id="hd"></header>
-
 <main>
-  <section class="wrap hero" aria-labelledby="heroT">
-    <div class="hero-top">
-      <h1 class="t-hero" id="heroT">Строим дом таким, каким его нарисовал архитектор</h1>
-      <div class="hero-side">
-        <p class="t-lead">Проект, стройка и отделка каменного дома одной командой. Цена фиксируется в договоре и не меняется до сдачи.</p>
-        <div class="acts">
-          <a class="btn" href="projects.html">Выбрать проект</a>
-          <a class="btn btn--line" href="contacts.html#form">Обсудить свой дом</a>
-        </div>
+  <section class="hero8" aria-labelledby="heroT">
+    <div class="h8-pics" id="h8Pics"><img class="on" src="assets/img/s-dusk.jpg" alt="Каменный дом с панорамными окнами вечером"><img src="assets/img/s-wood.jpg" alt="Дом из дерева и камня" loading="lazy"><img src="assets/img/s-tree.jpg" alt="Дом под старым деревом" loading="lazy"><img src="assets/img/s-white.jpg" alt="Белый дом с деревянной облицовкой" loading="lazy"></div>
+    <div class="h8-data" hidden><i data-place="Одинцовский округ" data-year="2025" data-area="220 м²" data-time="10 мес." data-slug="nerl"></i><i data-place="Рузский округ" data-year="2025" data-area="170 м²" data-time="9 мес." data-slug="oka"></i><i data-place="Истринский округ" data-year="2024" data-area="186 м²" data-time="9 мес." data-slug="ladoga"></i><i data-place="Красногорск" data-year="2023" data-area="137 м²" data-time="8 мес." data-slug="istra"></i></div>
+    <div class="pad h8-in">
+      <div class="h8-title">
+        <h1 class="h-xl" id="heroT">Дом, который строят один раз</h1>
+        <p class="text">Каменные дома под ключ в Московской области. Проект, стройка и отделка одной командой.</p>
+        <div class="h7-acts"><a class="btn d" href="#projects">Смотреть проекты</a><a class="btn h8-ghost d" href="contacts.html#form">Обсудить дом</a></div>
       </div>
-    </div>
-
-    <div class="compare" style="--pos:50%">
-      <img src="assets/img/hero-sketch.jpg" alt="Эскиз дома из архитектурного проекта">
-      <img class="built" src="assets/img/hero.jpg" alt="Тот же дом после строительства">
-      <span class="split-line"></span>
-      <span class="knob" aria-hidden="true"><svg width="28" height="16" viewBox="0 0 28 16"><path d="M8 2 L2 8 L8 14 M20 2 L26 8 L20 14" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
-      <span class="tag tag--plan">Проект, 2024</span>
-      <span class="tag tag--built">Построено, 2025</span>
-      <input id="cmpRange" type="range" min="0" max="100" value="50" aria-label="Сравнить эскиз проекта и построенный дом">
-    </div>
-    <div class="compare-note">
-      <span>Дом в Одинцовском округе, сдан в 2025 году</span>
-      <span>Потяните, чтобы сравнить эскиз и готовый дом</span>
+      <aside class="h8-card" aria-live="polite" aria-label="Построенный дом на фото">
+        <span class="mute h8-k">Построено в <span id="h8Year">2025</span></span>
+        <h2 class="h-2" id="h8Place">Одинцовский округ</h2>
+        <dl><div><dt>Площадь</dt><dd id="h8Area">220 м²</dd></div><div><dt>Стройка</dt><dd id="h8Time">10 мес.</dd></div></dl>
+        <div class="h8-nav">
+          <a class="h8-link" id="h8Link" href="project.html#nerl">Смотреть проект</a>
+          <div class="h8-arr"><button type="button" id="h8Prev" aria-label="Предыдущий дом"><svg width="18" height="14" viewBox="0 0 18 14"><path d="M7 1 L1 7 L7 13 M1 7 H17" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button><span class="num" id="h8Count">1 из 4</span><button type="button" id="h8Next" aria-label="Следующий дом"><svg width="18" height="14" viewBox="0 0 18 14"><path d="M11 1 L17 7 L11 13 M17 7 H1" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button></div>
+        </div>
+      </aside>
     </div>
   </section>
 
-  <section class="sec" style="padding-top:0" aria-labelledby="aboutT">
-    <div class="wrap">
-      <div class="two" style="margin-bottom:clamp(48px,6vw,88px)">
-        <h2 class="t-2" id="aboutT">Мы начинали как архитектурное бюро. Теперь сами строим то, что проектируем</h2>
-        <div class="prose mute">
-          <p>Когда проект и стройку ведут разные компании, на объекте появляются «упрощения»: другое окно, другой кирпич, другая высота потолка. Поэтому в 2012 году мы собрали первую бригаду.</p>
-          <p>Сейчас архитекторы, сметчики, бригады и технадзор работают в одной компании и отвечают за дом по одному договору.</p>
-          <p style="margin-top:1.4em"><a class="more" href="about.html">Подробнее о компании</a></p>
-        </div>
-      </div>
-      <div class="facts">
-        <div><b class="num">340</b><span>домов построено в Московской области с 2009 года</span></div>
+  <section class="sec" aria-labelledby="introT">
+    <div class="pad">
+      <h2 class="inline-photos" id="introT">Мы проектируем <span class="ip"><img src="assets/img/drawing.jpg" alt=""></span> и строим <span class="ip"><img src="assets/img/rebar.jpg" alt=""></span> каменные дома <span class="soft">с 2009 года. Своё бюро, свои бригады</span> <span class="ip"><img src="assets/img/site.jpg" alt=""></span> <span class="soft">и одна смета в договоре.</span></h2>
+      <div class="facts7">
+        <div><b class="num">340</b><span>домов построено в Московской области</span></div>
         <div><b class="num">15 лет</b><span>гарантии на фундамент, стены и кровлю</span></div>
-        <div><b class="num">0 ₽</b><span>доплат сверх сметы, которая указана в договоре</span></div>
+        <div><b class="num">0 ₽</b><span>доплат сверх сметы, указанной в договоре</span></div>
       </div>
     </div>
   </section>
 
-  <section class="sec" style="background:var(--white)" aria-labelledby="projT">
-    <div class="wrap">
-      <div class="head">
-        <h2 class="t-1" id="projT">Проекты домов</h2>
-        <p>Девять проектов от 82 до 330 м², каждый уже построен минимум трижды. Любой адаптируем под участок без доплаты. <a class="more" href="projects.html" style="color:var(--ink)">Все проекты</a></p>
-      </div>
-      <div class="feature" id="feature"></div>
+  <section id="projects" style="padding-bottom:var(--sec)" aria-labelledby="projT">
+    <div class="pad rail-head">
+      <h2 class="h-1" id="projT">Проекты</h2>
+      <div class="rail-ctrl"><a class="btn btn--line d" href="projects.html" style="min-width:0;gap:24px">Все проекты</a><button type="button" id="railPrev" aria-label="Предыдущие проекты"><svg width="18" height="14" viewBox="0 0 18 14"><path d="M7 1 L1 7 L7 13 M1 7 H17" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button><button type="button" id="railNext" aria-label="Следующие проекты"><svg width="18" height="14" viewBox="0 0 18 14"><path d="M11 1 L17 7 L11 13 M17 7 H1" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button></div>
     </div>
+    <div class="pad rail" id="rail"></div>
   </section>
 
-  <section class="sec" aria-labelledby="stepT">
-    <div class="wrap">
-      <div class="head">
-        <h2 class="t-1" id="stepT">Как проходит стройка</h2>
-        <p>От первой встречи до ключей в среднем 11 месяцев. Каждую пятницу присылаем фотоотчёт с объекта.</p>
-      </div>
-      <ol class="steps">
-        <li><h3>Участок и задача</h3><p>Выезжаем на участок, смотрим геологию, рельеф и соседей. Записываем, как живёт ваша семья.</p><span class="dur">1 неделя</span></li>
-        <li><h3>Архитектурный проект</h3><p>Планировки, фасады и конструкции в одном бюро. Три встречи с архитектором.</p><span class="dur">4–8 недель</span></li>
-        <li><h3>Смета и договор</h3><p>Смета с ценой каждого материала. Итоговая сумма фиксируется в договоре.</p><span class="dur">1 неделя</span></li>
-        <li><h3>Фундамент и коробка</h3><p>Монолитная плита, стены, перекрытия и кровля своими бригадами.</p><span class="dur">3–4 месяца</span></li>
-        <li><h3>Инженерия и фасад</h3><p>Отопление, вода, электрика по проекту, окна и облицовка фасада.</p><span class="dur">2–3 месяца</span></li>
-        <li><h3>Отделка и сдача</h3><p>Чистовая отделка, сантехника и свет. Акт подписываем после вашей приёмки.</p><span class="dur">2–4 месяца</span></li>
+  <section class="sec" style="padding-top:0" aria-labelledby="stepT">
+    <div class="pad halves sec-head"><h2 class="h-1" id="stepT">Как строим</h2><p class="text">Шесть этапов и один договор. Каждую пятницу присылаем фотоотчёт с объекта.</p></div>
+    <div class="pad steps7" id="steps7">
+      <div class="pic"><img class="on" src="assets/img/forest.jpg" alt="Участок в лесу" loading="lazy"><img src="assets/img/drawing.jpg" alt="Архитектор за чертежом" loading="lazy"><img src="assets/img/i-stone.jpg" alt="Интерьер с камнем и деревом" loading="lazy"><img src="assets/img/rebar.jpg" alt="Армирование фундамента" loading="lazy"><img src="assets/img/s-wood.jpg" alt="Фасад из дерева и камня" loading="lazy"><img src="assets/img/i-long.jpg" alt="Готовая гостиная" loading="lazy"><span class="badge" id="stepBadge">Этап 1 из 6</span></div>
+      <ol>
+        <li class="on"><span class="k">Этап 1 · 1 неделя</span><h3>Участок и задача</h3><p>Выезжаем на участок, смотрим геологию, рельеф и соседей. Записываем, как живёт ваша семья и что важно в доме.</p></li>
+        <li><span class="k">Этап 2 · 4–8 недель</span><h3>Архитектурный проект</h3><p>Планировки, фасады и конструкции в одном бюро. Три встречи с архитектором и визуализации каждой комнаты.</p></li>
+        <li><span class="k">Этап 3 · 1 неделя</span><h3>Смета и договор</h3><p>Смета с ценой каждого материала. Итоговая сумма фиксируется в договоре и не меняется до сдачи.</p></li>
+        <li><span class="k">Этап 4 · 3–4 месяца</span><h3>Фундамент и коробка</h3><p>Монолитная плита, стены, перекрытия и кровля своими бригадами. Технадзор каждую неделю.</p></li>
+        <li><span class="k">Этап 5 · 2–3 месяца</span><h3>Инженерия и фасад</h3><p>Отопление, вода, электрика по проекту, окна и облицовка фасада кирпичом, деревом или камнем.</p></li>
+        <li><span class="k">Этап 6 · 2–4 месяца</span><h3>Отделка и сдача</h3><p>Чистовая отделка, сантехника и свет. Акт подписываем только после вашей приёмки.</p></li>
       </ol>
     </div>
   </section>
 
-  <section class="sec" style="background:var(--sage)" aria-labelledby="kitT">
-    <div class="wrap">
-      <div class="head">
-        <h2 class="t-1" id="kitT">Сколько стоит дом</h2>
-        <p>Можно остановиться на любой стадии. Чаще всего заказывают тёплый контур и делают отделку позже. Точную смету по вашему проекту посчитаем за 3 рабочих дня.</p>
-      </div>
-      <div class="tbl-wrap" id="kits"></div>
-    </div>
+  <section class="sec stone-band" aria-labelledby="wallT">
+    <div class="pad halves"><h2 class="h-1" id="wallT">Стена 565 мм без утеплителя</h2><div><p class="text">Кирпич, вентзазор, газобетон и штукатурка. Такая стена держит тепло лучше нормы для Москвы, не горит и не требует ухода за фасадом.</p><p style="margin-top:28px"><a class="btn btn--dark d" href="technology.html">Технология</a></p></div></div>
+    <div class="pad"><div class="wall-mini" role="img" aria-label="Слои стены: кирпич 120 мм, вентзазор 30 мм, газобетон 400 мм, штукатурка 15 мм"><div class="b"><span>Кирпич 120</span></div><div class="a"><span>Зазор 30</span></div><div class="g"><span>Газобетон D400, 400</span></div><div class="p"><span>Штукатурка 15</span></div></div></div>
+    <div style="height:56px"></div>
   </section>
 
   <section class="sec" aria-labelledby="homesT">
-    <div class="wrap">
-      <div class="head">
-        <h2 class="t-1" id="homesT">Дома, в которых уже живут</h2>
-        <p>По субботам владельцы показывают свои дома тем, кто выбирает проект. <a class="more" href="objects.html" style="color:var(--ink)">Все построенные дома</a></p>
-      </div>
-      <div class="homes" id="homes"></div>
-    </div>
+    <div class="pad halves sec-head"><h2 class="h-1" id="homesT">Уже построено</h2><div><p class="text">По субботам владельцы показывают свои дома тем, кто выбирает проект.</p><p style="margin-top:28px"><a class="btn btn--line d" href="objects.html">Все построенные дома</a></p></div></div>
+    <div class="pad mosaic" id="mosaic"></div>
   </section>
 
-  <section class="sec band" id="form" aria-labelledby="ctaT">
-    <div class="wrap two">
-      <div>
-        <h2 class="t-1" id="ctaT">Расскажите о своём доме</h2>
-        <p class="t-lead mute" style="margin-top:24px">Архитектор перезвонит в течение часа в рабочее время, задаст несколько вопросов об участке и семье и пригласит в офис или на объект.</p>
-      </div>
+  <section class="sec" aria-labelledby="kitT">
+    <div class="pad halves sec-head"><h2 class="h-1" id="kitT">Сколько стоит дом</h2><div><p class="text">Можно остановиться на любой стадии и продолжить позже. Цены за квадратный метр, пример посчитан для проекта «Ладога», 186 м².</p></div></div>
+    <div class="pad kits9" id="kits9"></div>
+    <div class="pad kits9-foot"><span class="mute">Базовая цена: монолитная плита, штукатурный фасад, металлочерепица. Точную смету по вашему проекту посчитаем за 3 рабочих дня.</span><a class="btn btn--dark d" href="#form">Получить смету</a></div>
+  </section>
+
+  <section class="dark sec" id="form" aria-labelledby="ctaT">
+    <div class="pad halves">
+      <div><h2 class="h-1" id="ctaT">Обсудим ваш дом</h2><p class="text" style="margin-top:32px;color:rgba(255,255,255,.75)">Архитектор перезвонит в течение часа в рабочее время, задаст несколько вопросов об участке и семье и пригласит в офис.</p></div>
       <div>
         <form class="form" novalidate>
           <div class="row2">
@@ -120,17 +96,16 @@
             <label for="hPhone">Телефон<input id="hPhone" name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label>
           </div>
           <label for="hProject">Проект<select id="hProject" name="project"></select></label>
-          <label for="hNote">Участок<input id="hNote" name="note" placeholder="Например: 15 соток в Истринском округе, есть газ"></label>
+          <label for="hNote">Участок<input id="hNote" name="note" placeholder="Кадастровый номер или округ"></label>
           <p class="err" role="alert" hidden></p>
-          <button class="btn btn--light" type="submit">Отправить заявку</button>
+          <button class="btn d" type="submit">Отправить заявку</button>
           <p class="fine">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
         </form>
-        <div class="sent" hidden><p class="t-2">Заявка отправлена</p><p class="mute">Архитектор позвонит на номер <span data-phone class="num"></span> в течение часа.</p></div>
+        <div class="sent" hidden><p class="h-2">Заявка отправлена</p><p style="color:rgba(255,255,255,.75)">Архитектор позвонит на номер <span data-phone class="num"></span> в течение часа.</p></div>
       </div>
     </div>
   </section>
 </main>
-
 <footer id="ft"></footer>
 <script src="assets/js/data.js"></script>
 <script src="assets/js/akron.js"></script>

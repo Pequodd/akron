@@ -29,7 +29,7 @@ window.AKRON_DATA = {
       slug: 'ladoga', name: 'Ладога', img: 'ladoga', tag: 'Чаще всего строят', size: '12 × 11', floors: 2, bedrooms: 4, baths: 3, months: 9, style: 'Современный',
       wall: 'Газобетон D500, 375 мм', facade: 'Клинкер и планкен', roof: 'Плоская',
       about: 'Дом для семьи с детьми: общая зона на первом этаже, четыре спальни на втором. Панорамное остекление гостиной выходит на террасу 24 м².',
-      gallery: ['int-living', 'int-stair', 'int-kitchen', 'int-bedroom'],
+      gallery: ['i-stone', 'int-stair', 'int-kitchen', 'int-bedroom'],
       plan: [
         { name: '1 этаж', w: 12, h: 11, rooms: [['Кухня-гостиная', 48], ['Кабинет', 12], ['Прихожая', 11], ['Котельная', 7], ['Санузел', 6], ['Кладовая', 4]] },
         { name: '2 этаж', w: 12, h: 11, rooms: [['Мастер-спальня', 22], ['Спальня', 15], ['Спальня', 14], ['Спальня', 13], ['Холл', 13], ['Санузел', 8], ['Гардероб', 7], ['Санузел', 6]] }
@@ -39,7 +39,7 @@ window.AKRON_DATA = {
       slug: 'istra', name: 'Истра', img: 'istra', tag: 'Новый проект', size: '10 × 9', floors: 2, bedrooms: 3, baths: 2, months: 8, style: 'Современный',
       wall: 'Газобетон D500, 375 мм', facade: 'Штукатурка и дерево', roof: 'Плоская',
       about: 'Компактный дом на узкий участок от 8 соток. Второй свет над гостиной и кабинет на антресоли.',
-      gallery: ['int-glass', 'int-lounge', 'int-bath', 'int-hall'],
+      gallery: ['i-dining', 'i-wood', 'int-bath', 'i-white'],
       plan: [
         { name: '1 этаж', w: 10, h: 9, rooms: [['Кухня-гостиная', 40], ['Гостевая', 12], ['Прихожая', 9], ['Котельная', 6], ['Санузел', 5]] },
         { name: '2 этаж', w: 10, h: 9, rooms: [['Мастер-спальня', 18], ['Спальня', 14], ['Кабинет', 11], ['Холл', 9], ['Санузел', 7], ['Гардероб', 6]] }
@@ -49,7 +49,7 @@ window.AKRON_DATA = {
       slug: 'valdai', name: 'Валдай', img: 'valdai', size: '16 × 10', floors: 2, bedrooms: 4, baths: 3, months: 10, style: 'Современный',
       wall: 'Керамический блок 380 мм', facade: 'Штукатурка', roof: 'Плоская эксплуатируемая',
       about: 'Дом-витрина со сплошным остеклением южного фасада и эксплуатируемой кровлей над гаражом.',
-      gallery: ['int-glass', 'int-kitchen', 'int-living', 'int-bath'],
+      gallery: ['i-dining', 'int-kitchen', 'i-stone', 'int-bath'],
       plan: [
         { name: '1 этаж', w: 16, h: 10, rooms: [['Кухня-гостиная', 56], ['Гараж', 34], ['Кабинет', 14], ['Прихожая', 12], ['Котельная', 8], ['Санузел', 6]] },
         { name: '2 этаж', w: 16, h: 10, rooms: [['Мастер-спальня', 26], ['Спальня', 16], ['Спальня', 16], ['Спальня', 14], ['Холл', 18], ['Санузел', 9], ['Санузел', 7]] }
@@ -59,7 +59,7 @@ window.AKRON_DATA = {
       slug: 'ruza', name: 'Руза', img: 'ruza', size: '14 × 12', floors: 2, bedrooms: 3, baths: 3, months: 9, style: 'Современный',
       wall: 'Газобетон D500, 400 мм', facade: 'Клинкер', roof: 'Плоская',
       about: 'Консоль второго этажа над террасой даёт тень летом и сухое крыльцо зимой.',
-      gallery: ['int-lounge', 'int-stair', 'int-bedroom', 'int-kitchen'],
+      gallery: ['i-wood', 'int-stair', 'int-bedroom', 'int-kitchen'],
       plan: [
         { name: '1 этаж', w: 14, h: 12, rooms: [['Кухня-гостиная', 52], ['Гостевая', 14], ['Прихожая', 12], ['Сауна', 10], ['Котельная', 8], ['Санузел', 7]] },
         { name: '2 этаж', w: 14, h: 12, rooms: [['Мастер-спальня', 24], ['Спальня', 17], ['Спальня', 16], ['Холл', 14], ['Санузел', 9], ['Гардероб', 8]] }
@@ -69,7 +69,7 @@ window.AKRON_DATA = {
       slug: 'sestra', name: 'Сестра', img: 'sestra', size: '11 × 8', floors: 1, bedrooms: 2, baths: 1, months: 6, style: 'Минимализм',
       wall: 'Газобетон D400, 400 мм', facade: 'Штукатурка', roof: 'Односкатная',
       about: 'Одноэтажный дом без лестниц: подойдёт для постоянной жизни вдвоём или как гостевой.',
-      gallery: ['int-hall', 'int-bath', 'int-lounge', 'int-bedroom'],
+      gallery: ['i-white', 'int-bath', 'i-wood', 'int-bedroom'],
       plan: [
         { name: '1 этаж', w: 11, h: 8, rooms: [['Кухня-гостиная', 34], ['Спальня', 16], ['Спальня', 12], ['Прихожая', 8], ['Санузел', 7], ['Котельная', 5]] }
       ]
@@ -78,7 +78,7 @@ window.AKRON_DATA = {
       slug: 'onega', name: 'Онега', img: 'onega', tag: 'Большой дом', size: '18 × 14', floors: 2, bedrooms: 5, baths: 4, months: 12, style: 'Современный',
       wall: 'Керамический блок 440 мм', facade: 'Камень и планкен', roof: 'Плоская эксплуатируемая',
       about: 'Резиденция с бассейном на цокольном уровне, гостевой спальней на первом этаже и террасой на кровле.',
-      gallery: ['int-living', 'int-glass', 'int-kitchen', 'int-bath'],
+      gallery: ['i-stone', 'i-dining', 'int-kitchen', 'int-bath'],
       plan: [
         { name: '1 этаж', w: 18, h: 14, rooms: [['Кухня-гостиная', 72], ['Бассейн', 48], ['Гостевая', 18], ['Кабинет', 16], ['Прихожая', 16], ['Котельная', 12], ['Санузел', 8]] },
         { name: '2 этаж', w: 18, h: 14, rooms: [['Мастер-спальня', 32], ['Гардероб', 12], ['Спальня', 20], ['Спальня', 18], ['Спальня', 18], ['Холл', 22], ['Санузел', 10], ['Санузел', 8]] }
@@ -88,7 +88,7 @@ window.AKRON_DATA = {
       slug: 'protva', name: 'Протва', img: 'protva', size: '9 × 9', floors: 2, bedrooms: 3, baths: 2, months: 7, style: 'Классика',
       wall: 'Газобетон D500, 375 мм', facade: 'Штукатурка', roof: 'Двускатная',
       about: 'Квадратный план с минимумом коридоров: каждая комната получает два окна.',
-      gallery: ['int-kitchen', 'int-hall', 'int-bedroom', 'int-stair'],
+      gallery: ['int-kitchen', 'i-white', 'int-bedroom', 'int-stair'],
       plan: [
         { name: '1 этаж', w: 9, h: 9, rooms: [['Кухня-гостиная', 36], ['Прихожая', 8], ['Гостевая', 11], ['Санузел', 5], ['Котельная', 5]] },
         { name: '2 этаж', w: 9, h: 9, rooms: [['Спальня', 16], ['Спальня', 14], ['Спальня', 12], ['Холл', 8], ['Санузел', 6]] }
@@ -98,17 +98,17 @@ window.AKRON_DATA = {
       slug: 'nerl', name: 'Нерль', img: 'nerl', size: '15 × 12', floors: 2, bedrooms: 4, baths: 3, months: 10, style: 'Современный',
       wall: 'Монолит и газобетон', facade: 'Штукатурка и дерево', roof: 'Плоская',
       about: 'Монолитный каркас с вылетами плит до 3 метров. Второй этаж раскрывается на лес.',
-      gallery: ['int-glass', 'int-living', 'int-stair', 'int-bath'],
+      gallery: ['i-dining', 'i-stone', 'int-stair', 'int-bath'],
       plan: [
         { name: '1 этаж', w: 15, h: 12, rooms: [['Кухня-гостиная', 60], ['Кабинет', 14], ['Гостевая', 14], ['Прихожая', 12], ['Котельная', 8], ['Санузел', 7]] },
         { name: '2 этаж', w: 15, h: 12, rooms: [['Мастер-спальня', 26], ['Спальня', 18], ['Спальня', 16], ['Спальня', 15], ['Холл', 14], ['Санузел', 9], ['Санузел', 7]] }
       ]
     },
     {
-      slug: 'oka', name: 'Ока', img: 'oka', size: '13 × 10', floors: 2, bedrooms: 4, baths: 2, months: 9, style: 'Классика',
+      slug: 'oka', name: 'Ока', img: 's-wood', size: '13 × 10', floors: 2, bedrooms: 4, baths: 2, months: 9, style: 'Классика',
       wall: 'Газобетон D500, 375 мм', facade: 'Кирпич и дерево', roof: 'Многоскатная',
       about: 'Дом в традиционном силуэте с вальмовой кровлей и открытой верандой по периметру.',
-      gallery: ['int-lounge', 'int-kitchen', 'int-bedroom', 'int-hall'],
+      gallery: ['i-wood', 'int-kitchen', 'int-bedroom', 'i-white'],
       plan: [
         { name: '1 этаж', w: 13, h: 10, rooms: [['Кухня-гостиная', 46], ['Гостевая', 14], ['Прихожая', 10], ['Котельная', 7], ['Санузел', 6], ['Кладовая', 5]] },
         { name: '2 этаж', w: 13, h: 10, rooms: [['Мастер-спальня', 20], ['Спальня', 15], ['Спальня', 14], ['Спальня', 13], ['Холл', 12], ['Санузел', 8]] }
@@ -123,7 +123,7 @@ window.AKRON_DATA = {
     { name: 'Дом для двоих', project: 'sestra', place: 'Дмитровский округ', year: 2024, months: 6, img: 'sestra' },
     { name: 'Дом с консолью', project: 'ruza', place: 'Солнечногорск', year: 2024, months: 9, img: 'ruza' },
     { name: 'Резиденция у реки', project: 'onega', place: 'Наро-Фоминский округ', year: 2023, months: 13, img: 'onega' },
-    { name: 'Семейный дом', project: 'oka', place: 'Красногорск', year: 2023, months: 9, img: 'oka' },
+    { name: 'Семейный дом', project: 'oka', place: 'Красногорск', year: 2023, months: 9, img: 's-wood' },
     { name: 'Дом на узком участке', project: 'istra', place: 'Истринский округ', year: 2023, months: 8, img: 'istra' }
   ]
 };

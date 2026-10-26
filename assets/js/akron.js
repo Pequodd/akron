@@ -25,24 +25,28 @@
     ['contacts', 'contacts.html', 'Контакты']
   ];
   var cur = page === 'project' ? 'projects' : page;
-  var logo = '<svg viewBox="0 0 30 30" aria-hidden="true"><path d="M2 26 L15 4 L28 26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M9 17 H21" stroke="currentColor" stroke-width="2.2"/></svg>';
+  // точечный круг, как в референсе
+  // знак: силуэт дома с фронтоном
+  var dots = '';
+  window.AKRON_DOTS = dots;
+  document.querySelectorAll('.btn[data-dots], .btn.d').forEach(function (b) { b.insertAdjacentHTML('beforeend', dots); });
+
   var hd = $('#hd');
   if (hd) {
-    hd.className = 'hd';
+    hd.className = 'hd' + (document.body.dataset.solid ? ' solid' : '');
     hd.innerHTML =
-      '<div class="wrap hd-row">' +
-        '<a class="hd-logo" href="index.html" aria-label="Акрон, на главную">' + logo + 'Акрон</a>' +
+      '<div class="pad hd-row">' +
+        '<a class="hd-logo" href="index.html" aria-label="Акрон, на главную">Акрон' + dots + '</a>' +
         '<nav class="hd-nav" aria-label="Основное меню">' + nav.map(function (n) {
           return '<a href="' + n[1] + '"' + (n[0] === cur ? ' aria-current="page"' : '') + '>' + n[2] + '</a>';
         }).join('') + '</nav>' +
-        '<span class="hd-phone num">+7 495 790-14-09</span>' +
-        '<a class="btn" href="contacts.html#form">Обсудить дом</a>' +
+        '<div class="hd-right"><a class="hd-contact" href="contacts.html#form">Связаться' + dots + '</a>' +
         '<button class="hd-burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Открыть меню">' +
-          '<svg width="20" height="14" viewBox="0 0 20 14" aria-hidden="true"><path d="M0 1h20M0 7h20M0 13h20" stroke="currentColor" stroke-width="1.6"/></svg></button>' +
+          '<svg width="20" height="10" viewBox="0 0 20 10" aria-hidden="true"><path d="M0 1h20M0 9h20" stroke="currentColor" stroke-width="1.6"/></svg></button></div>' +
       '</div>' +
-      '<div class="wrap drawer" id="drawer" hidden>' + nav.map(function (n) {
-        return '<a href="' + n[1] + '"' + (n[0] === cur ? ' aria-current="page"' : '') + '>' + n[2] + '</a>';
-      }).join('') + '<p>+7 495 790-14-09, ежедневно кроме воскресенья с 9 до 21</p></div>';
+      '<div class="drawer pad" id="drawer" hidden>' + nav.map(function (n) {
+        return '<a href="' + n[1] + '">' + n[2] + '</a>';
+      }).join('') + '<a href="contacts.html#form">Связаться</a><p>+7 495 790-14-09<br>hello@akron.example</p></div>';
     var burger = $('.hd-burger', hd), drawer = $('#drawer');
     burger.addEventListener('click', function () {
       var open = drawer.hidden;
@@ -50,63 +54,145 @@
       burger.setAttribute('aria-expanded', String(open));
       burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
     });
-    var onScroll = function () { hd.classList.toggle('scrolled', window.scrollY > 8); };
-    window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    if (!document.body.dataset.solid) {
+      var onScroll = function () { hd.classList.toggle('solid', window.scrollY > window.innerHeight * 0.75); };
+      window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    }
   }
 
   var ft = $('#ft');
   if (ft) {
     ft.className = 'ft';
     ft.innerHTML =
-      '<div class="wrap">' +
-        '<div class="ft-grid">' +
-          '<div><a class="hd-logo" href="index.html">' + logo + 'Акрон</a><p class="mute" style="margin-top:16px;max-width:22em">Проектируем и строим каменные дома в Московской области с 2009 года.</p></div>' +
-          '<div><h4>Компания</h4><a href="about.html">О компании</a><a href="technology.html">Технология</a><a href="objects.html">Построенные дома</a><a href="contacts.html">Контакты</a></div>' +
-          '<div><h4>Проекты</h4>' + D.projects.slice(0, 4).map(function (p) { return '<a href="project.html#' + p.slug + '">' + p.name + ', ' + p.area + ' м²</a>'; }).join('') + '<a href="projects.html">Все проекты</a></div>' +
-          '<div><h4>Связаться</h4><p class="big num">+7 495 790-14-09</p><p>hello@akron.example</p><p class="mute" style="margin-top:12px">Москва, Пресненская наб., 10, блок C</p></div>' +
-        '</div>' +
-        '<div class="ft-bottom"><span>© 2009–2026 Акрон</span></div>' +
-      '</div>';
+      '<div class="pad cols">' +
+        '<div><span class="mono">Акрон</span><p>Каменные дома под ключ в Московской области с 2009 года.</p></div>' +
+        '<div><span class="mono">Разделы</span>' + nav.map(function (n) { return '<a href="' + n[1] + '">' + n[2] + '</a>'; }).join('') + '</div>' +
+        '<div><span class="mono">Проекты</span>' + D.projects.slice(0, 5).map(function (p) { return '<a href="project.html#' + p.slug + '">' + p.name + ', ' + p.area + ' м²</a>'; }).join('') + '</div>' +
+        '<div><span class="mono">Контакты</span><p>hello@akron.example</p><p class="num">+7 495 790-14-09</p><p style="margin-top:12px">Москва, Пресненская наб., 10, блок C</p></div>' +
+      '</div>' +
+      '<div class="pad ft-bot mono"><span>© 2009–2026 Акрон</span></div>';
   }
 
   /* ---------- Общие фрагменты ---------- */
   function img(name, alt, eager) {
     return '<img src="' + IMG + name + '.jpg" alt="' + esc(alt) + '"' + (eager ? '' : ' loading="lazy"') + '>';
   }
-  function pj(p, big) {
-    return '<a class="pj' + (big ? ' pj--big' : '') + '" href="project.html#' + p.slug + '">' +
-      '<div class="ph">' + img(p.img, 'Дом по проекту «' + p.name + '»') + '</div>' +
-      '<div class="meta"><h3>' + p.name + '</h3><span class="price">от ' + mln(priceFrom(p)) + '</span></div>' +
-      '<p class="facts-line">' + p.area + ' м², ' + p.floors + ' ' + plural(p.floors, 'этаж', 'этажа', 'этажей') + ', ' + p.bedrooms + ' ' + plural(p.bedrooms, 'спальня', 'спальни', 'спален') + ', стройка ' + p.months + ' мес.</p>' +
+  function pj(p, kind) {
+    return '<a class="pj' + (kind ? ' pj--' + kind : '') + '" href="project.html#' + p.slug + '">' +
+      '<div class="ph">' + img(p.img, 'Дом по проекту «' + p.name + '»') + '<span class="over"><span class="btn">Смотреть проект' + dots + '</span></span></div>' +
+      '<div class="meta"><h3>' + p.name + '</h3><span>' + p.area + ' м², от ' + mln(priceFrom(p)) + '</span></div>' +
     '</a>';
   }
-  function home(o) {
+  function home(o, kind) {
     var p = byslug[o.project];
-    return '<a class="home" href="project.html#' + p.slug + '">' +
+    return '<a class="pj' + (kind ? ' pj--' + kind : '') + '" href="project.html#' + p.slug + '">' +
       '<div class="ph">' + img(o.img, o.name) + '</div>' +
-      '<h3>' + o.name + '</h3>' +
-      '<p>' + o.place + ', ' + o.year + '. Проект «' + p.name + '», ' + p.area + ' м², построен за ' + o.months + ' мес.</p></a>';
+      '<div class="meta"><h3>' + o.name + '</h3><span>' + o.place + ', ' + o.year + '</span></div></a>';
+  }
+  var kinds = ['tall', 'wide', 'wide', 'tall', 'sq', 'wide', 'tall', 'wide'];
+  function duo(list, fn) {
+    var a = [], b = [];
+    list.forEach(function (x, i) { (i % 2 ? b : a).push(fn(x, kinds[i % kinds.length])); });
+    return '<div class="col">' + a.join('') + '</div><div class="col">' + b.join('') + '</div>';
   }
 
-  /* ---------- Шторка «проект ↔ дом» ---------- */
-  var cmp = $('.compare');
-  if (cmp) {
-    var range = $('input', cmp);
-    var setPos = function (v) { cmp.style.setProperty('--pos', v + '%'); };
-    range.addEventListener('input', function () { cmp.classList.remove('hint'); setPos(range.value); });
-    setPos(range.value);
-    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      cmp.classList.add('hint');
-      cmp.addEventListener('animationend', function () { cmp.classList.remove('hint'); setPos(range.value); });
-    }
+  /* ---------- Слайдер с полосками прогресса ---------- */
+  function slider(root, onChange, dur) {
+    var slides = root.querySelectorAll('[data-slide]'), bars = root.querySelectorAll('.bars button'), i = 0, timer;
+    var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var go = function (n) {
+      i = (n + slides.length) % slides.length;
+      slides.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+      bars.forEach(function (b, k) { b.classList.remove('on'); b.classList.toggle('done', k < i); b.setAttribute('aria-current', String(k === i)); });
+      void bars[i].offsetWidth; bars[i].classList.add('on');
+      if (onChange) onChange(i);
+      clearTimeout(timer); if (!reduce) timer = setTimeout(function () { go(i + 1); }, dur);
+    };
+    bars.forEach(function (b, k) { b.style.setProperty('--dur', dur + 'ms'); b.addEventListener('click', function () { go(k); }); });
+    go(0);
   }
 
   /* ---------- Главная ---------- */
   if (page === 'home') {
-    var f = ['ladoga', 'nerl', 'istra'].map(function (s) { return byslug[s]; });
-    $('#feature').innerHTML = pj(f[0], true) + '<div class="stack">' + pj(f[1]) + pj(f[2]) + '</div>';
-    $('#homes').innerHTML = D.objects.slice(0, 4).map(home).join('');
-    drawKits($('#kits'));
+    // окно-силуэт раскрывается по мере прокрутки
+    var gable = $('#gable'), stage = $('#gstage');
+    if (!gable) {} else if (matchMedia('(prefers-reduced-motion: reduce)').matches) gable.classList.add('static');
+    else {
+      var tick = function () {
+        var r = gable.getBoundingClientRect(), span = gable.offsetHeight - innerHeight;
+        var p = Math.min(1, Math.max(0, -r.top / (span * .85)));
+        stage.style.setProperty('--p', p.toFixed(3));
+      };
+      addEventListener('scroll', tick, { passive: true }); addEventListener('resize', tick); tick();
+    }
+    // первый экран: смена дома по миниатюрам
+    var hg = $('#h7Gable');
+    if (hg) {
+      var hImgs = hg.querySelectorAll('img');
+      document.querySelectorAll('.h7-thumbs button').forEach(function (b, i, all) {
+        b.addEventListener('click', function () {
+          all.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+          hImgs.forEach(function (im, k) { im.classList.toggle('on', k === i); });
+          $('#h7Cap').textContent = b.dataset.cap;
+        });
+      });
+    }
+    // первый экран: дома на фото и карточка с фронтоном
+    var h8 = $('#h8Pics');
+    if (h8) {
+      var h8i = h8.querySelectorAll('img'), h8d = document.querySelectorAll('.h8-data i'), hc = 0;
+      var showH8 = function (n) {
+        hc = (n + h8i.length) % h8i.length;
+        h8i.forEach(function (im, i) { im.classList.toggle('on', i === hc); });
+        var d = h8d[hc].dataset;
+        $('#h8Year').textContent = d.year; $('#h8Place').textContent = d.place; $('#h8Area').textContent = d.area; $('#h8Time').textContent = d.time;
+        $('#h8Link').href = 'project.html#' + d.slug; $('#h8Count').textContent = (hc + 1) + ' из ' + h8i.length;
+      };
+      $('#h8Prev').onclick = function () { showH8(hc - 1); };
+      $('#h8Next').onclick = function () { showH8(hc + 1); };
+    }
+    // карусель проектов
+    var rail = $('#rail');
+    rail.innerHTML = D.projects.map(function (p) { return pj(p); }).join('');
+    var step = function () { return rail.firstElementChild.getBoundingClientRect().width + parseFloat(getComputedStyle(rail).columnGap || 16); };
+    var upd = function () { $('#railPrev').disabled = rail.scrollLeft < 4; $('#railNext').disabled = rail.scrollLeft + rail.clientWidth > rail.scrollWidth - 4; };
+    $('#railPrev').onclick = function () { rail.scrollBy({ left: -step(), behavior: 'smooth' }); };
+    $('#railNext').onclick = function () { rail.scrollBy({ left: step(), behavior: 'smooth' }); };
+    rail.addEventListener('scroll', upd, { passive: true }); upd();
+    // этапы: активный шаг меняет фото
+    var lis = document.querySelectorAll('#steps7 li'), pics = document.querySelectorAll('#steps7 .pic img');
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var k = [].indexOf.call(lis, e.target);
+        lis.forEach(function (l, i) { l.classList.toggle('on', i === k); });
+        pics.forEach(function (im, i) { im.classList.toggle('on', i === k); });
+        $('#stepBadge').textContent = 'Этап ' + (k + 1) + ' из 6';
+      });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    lis.forEach(function (l) { io.observe(l); });
+    // мозаика построенных домов
+    $('#mosaic').innerHTML = D.objects.slice(0, 4).map(function (o) {
+      return '<a href="project.html#' + o.project + '">' + img(o.img, o.name) + '<span>' + o.name + ', ' + o.place + '</span></a>';
+    }).join('');
+    // стоимость: четыре стадии карточками с фото
+    var kitInfo = {
+      box: ['s-white', 'Фасад до отделки', ['Монолитная плита', 'Стены и перекрытия', 'Кровля']],
+      warm: ['s-wood', 'Дом закрыт от погоды', ['Всё из коробки', 'Окна и входная дверь', 'Утеплённый фасад']],
+      white: ['i-white', 'Готово под чистовую', ['Всё из тёплого контура', 'Отопление, вода, электрика', 'Стяжка и штукатурка']],
+      key: ['i-long', 'Можно заезжать', ['Всё из white box', 'Отделка по дизайн-проекту', 'Свет, сантехника, участок']]
+    };
+    var lad = byslug.ladoga;
+    $('#kits9').innerHTML = D.kits.map(function (k, i) {
+      var inf = kitInfo[k.id];
+      return '<article class="kit9">' +
+        '<div class="ph">' + img(inf[0], inf[1]) + (i === 1 ? '<span class="pick">Выбирают чаще</span>' : '') + '</div>' +
+        '<div class="kit9-top"><h3>' + k.name + '</h3><span class="mute">' + inf[1] + '</span></div>' +
+        '<p class="kit9-pr num">' + rub.format(k.per) + ' ₽ <small>за м²</small></p>' +
+        '<p class="kit9-ex num">«Ладога» от ' + mln(k.per * lad.area) + '</p>' +
+        '<ul>' + inf[2].map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>' +
+      '</article>';
+    }).join('');
   }
 
   function drawKits(el) {
@@ -218,17 +304,17 @@
       if (w >= h) { split(a, x, y, w * t, h); split(b, x + w * t, y, w * (1 - t), h); }
       else { split(a, x, y, w, h * t); split(b, x, y + h * t, w, h * (1 - t)); }
     })(rooms, pad, pad, W, H);
-    var font = 'Jost, sans-serif';
+    var font = 'Onest, sans-serif';
     $('#pjPlan').innerHTML = '<svg viewBox="0 0 ' + (W + pad * 2) + ' ' + (H + pad * 2) + '" role="img" aria-label="Схема планировки, ' + fl.name + '">' +
-      '<rect x="' + (pad - 5) + '" y="' + (pad - 5) + '" width="' + (W + 10) + '" height="' + (H + 10) + '" fill="none" stroke="#1C2420" stroke-width="10"/>' +
+      '<rect x="' + (pad - 5) + '" y="' + (pad - 5) + '" width="' + (W + 10) + '" height="' + (H + 10) + '" fill="none" stroke="#000" stroke-width="10"/>' +
       rects.map(function (q) {
         var big = q.w > 120 && q.h > 80;
         return '<g data-i="' + q.r.i + '"><rect class="room-rect" x="' + q.x + '" y="' + q.y + '" width="' + q.w + '" height="' + q.h + '"/>' +
-          '<text x="' + (q.x + 12) + '" y="' + (q.y + 26) + '" font-family="' + font + '" font-size="16" fill="#5F6962">' + (q.r.i + 1) + '</text>' +
-          (big ? '<text x="' + (q.x + 12) + '" y="' + (q.y + q.h - 16) + '" font-family="' + font + '" font-size="17" fill="#1C2420">' + q.r.name + ', ' + q.r.a + ' м²</text>' : '') + '</g>';
+          '<text x="' + (q.x + 12) + '" y="' + (q.y + 26) + '" font-family="' + font + '" font-size="16" fill="#6E6E6E">' + (q.r.i + 1) + '</text>' +
+          (big ? '<text x="' + (q.x + 12) + '" y="' + (q.y + q.h - 16) + '" font-family="' + font + '" font-size="17" fill="#000">' + q.r.name + ', ' + q.r.a + ' м²</text>' : '') + '</g>';
       }).join('') +
-      '<text x="' + (pad + W / 2) + '" y="' + (pad - 14) + '" text-anchor="middle" font-family="' + font + '" font-size="15" fill="#5F6962">' + String(fl.w).replace('.', ',') + ' м</text>' +
-      '<text x="' + (pad - 14) + '" y="' + (pad + H / 2) + '" text-anchor="middle" font-family="' + font + '" font-size="15" fill="#5F6962" transform="rotate(-90 ' + (pad - 14) + ' ' + (pad + H / 2) + ')">' + String(fl.h).replace('.', ',') + ' м</text>' +
+      '<text x="' + (pad + W / 2) + '" y="' + (pad - 14) + '" text-anchor="middle" font-family="' + font + '" font-size="15" fill="#6E6E6E">' + String(fl.w).replace('.', ',') + ' м</text>' +
+      '<text x="' + (pad - 14) + '" y="' + (pad + H / 2) + '" text-anchor="middle" font-family="' + font + '" font-size="15" fill="#6E6E6E" transform="rotate(-90 ' + (pad - 14) + ' ' + (pad + H / 2) + ')">' + String(fl.h).replace('.', ',') + ' м</text>' +
       '</svg>';
     $('#pjRooms').innerHTML = rooms.map(function (r) {
       return '<li data-i="' + r.i + '"><span class="n">' + (r.i + 1) + '</span><span>' + r.name + '</span><span class="a">' + r.a + ' м²</span></li>';
@@ -268,7 +354,7 @@
   }
 
   /* ---------- Построенные дома ---------- */
-  if (page === 'objects') $('#homes').innerHTML = D.objects.map(home).join('');
+  if (page === 'objects') $('#homes').innerHTML = duo(D.objects, home);
 
   /* ---------- Технология: разрез стены ---------- */
   if (page === 'technology') {

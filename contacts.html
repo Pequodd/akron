@@ -4,55 +4,51 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Контакты — Акрон</title>
-<meta name="description" content="Офис Акрон в Москве и шоурум материалов в Истре.">
-<meta name="theme-color" content="#F5F6F2">
+<meta name="description" content="Офис Акрон в Москве и шоурум в Истре.">
+<meta name="theme-color" content="#1F1C19">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/css/akron.css">
 </head>
-<body data-page="contacts">
+<body data-page="contacts" data-solid="1">
 <header id="hd"></header>
 <main>
-  <div class="wrap page-head">
-    <p class="crumbs"><a href="index.html">Главная</a> / Контакты</p>
-    <div class="two">
-      <h1 class="t-hero">Контакты</h1>
-      <p class="t-lead mute">С архитектором встречаемся в офисе в Москве. Материалы можно посмотреть в шоуруме в Истре, по дороге на объекты.</p>
-    </div>
+  <div class="page-top"></div>
+  <div class="pad head-band">
+    <p class="crumbs mono"><a href="index.html">Главная</a> / Контакты</p>
+    <div class="halves" style="align-items:end"><h1 class="h-xl">Контакты</h1><p class="text">Встречи с архитектором проходят в офисе в Москве. Материалы можно посмотреть в шоуруме в Истре.</p></div>
   </div>
 
-  <section class="wrap" style="padding-bottom:var(--sec)" aria-label="Адреса и телефоны">
-    <div class="contact-grid">
-      <div class="addr">
-        <div><span class="k">Телефон</span><span class="v big num">+7 495 790-14-09</span><button class="copy" type="button" data-copy="+74957901409">Скопировать</button><span class="mute">Ежедневно кроме воскресенья, с 9 до 21</span></div>
-        <div><span class="k">Почта</span><span class="v">hello@akron.example</span><button class="copy" type="button" data-copy="hello@akron.example">Скопировать</button></div>
-        <div><span class="k">Офис</span><span class="v">Москва, Пресненская наб., 10, блок C, 14 этаж</span><span class="mute">5 минут от метро «Выставочная». Встречи по записи</span></div>
-        <div><span class="k">Шоурум материалов</span><span class="v">Истра, Волоколамское шоссе, 54 км</span><span class="mute">Суббота и воскресенье, с 10 до 18. Бесплатная парковка</span></div>
-      </div>
-      <div class="map">
-        <svg viewBox="0 0 640 560" role="img" aria-label="Схема: офис в Москве и шоурум в Истре на северо-западе по Волоколамскому шоссе">
-          <rect width="640" height="560" fill="#FFFFFF"/>
-          <g fill="none" stroke="#D9DED5" stroke-width="1.5"><circle cx="390" cy="320" r="120"/><circle cx="390" cy="320" r="56"/></g>
-          <circle cx="390" cy="320" r="190" fill="#E3E8DF" fill-opacity=".5" stroke="#1C2420" stroke-width="2"/>
-          <g stroke="#C9CFC8" stroke-width="2"><line x1="390" y1="320" x2="40" y2="70"/><line x1="390" y1="320" x2="390" y2="0"/><line x1="390" y1="320" x2="640" y2="150"/><line x1="390" y1="320" x2="640" y2="480"/><line x1="390" y1="320" x2="290" y2="560"/><line x1="390" y1="320" x2="0" y2="350"/></g>
-          <path d="M390 320 L112 121" stroke="#1F3A2D" stroke-width="4" stroke-linecap="round"/>
-          <g font-family="Jost, sans-serif" font-size="15" fill="#5F6962"><text x="560" y="310">МКАД</text><text x="60" y="60">Волоколамское ш.</text><text x="14" y="340">Минское ш.</text><text x="400" y="22">Дмитровское ш.</text></g>
-          <circle cx="368" cy="312" r="11" fill="#1F3A2D"/>
-          <text x="384" y="296" font-family="Jost, sans-serif" font-size="17" fill="#1C2420">Офис</text>
-          <circle cx="112" cy="121" r="11" fill="#FFFFFF" stroke="#1F3A2D" stroke-width="4"/>
-          <text x="132" y="150" font-family="Jost, sans-serif" font-size="17" fill="#1C2420">Шоурум, Истра</text>
-          <text x="132" y="172" font-family="Jost, sans-serif" font-size="15" fill="#5F6962">54 км от МКАД</text>
-        </svg>
-      </div>
+  <section class="pad" style="padding-bottom:var(--sec)" aria-label="Телефон, почта и адреса">
+    <div class="c-rows">
+      <div class="c-row"><span class="mono mute">Телефон</span><div class="c-val"><span class="big num">+7 495 790-14-09</span><button class="copy" type="button" data-copy="+74957901409">Скопировать</button></div><span class="mute c-note">Пн–сб, с 9 до 21</span></div>
+      <div class="c-row"><span class="mono mute">Почта</span><div class="c-val"><span class="big">hello@akron.example</span><button class="copy" type="button" data-copy="hello@akron.example">Скопировать</button></div><span class="mute c-note">Ответим в течение рабочего дня</span></div>
+    </div>
+    <div class="places">
+      <article class="place">
+        <div class="ph"><img src="assets/img/drawing.jpg" alt="Архитектор работает над проектом в офисе" loading="lazy"></div>
+        <div class="place-body">
+          <div class="place-top"><h2 class="h-2">Офис в Москве</h2><span class="mono mute">Встречи с архитектором</span></div>
+          <p class="text">Пресненская набережная, 10, блок C, 14 этаж</p>
+          <dl class="place-dl"><dt>Как добраться</dt><dd>5 минут пешком от метро «Выставочная»</dd><dt>Часы</dt><dd>Пн–сб, с 9 до 21, по записи</dd></dl>
+          <a class="btn btn--dark d" href="https://yandex.ru/maps/?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%9F%D1%80%D0%B5%D1%81%D0%BD%D0%B5%D0%BD%D1%81%D0%BA%D0%B0%D1%8F%20%D0%BD%D0%B0%D0%B1%D0%B5%D1%80%D0%B5%D0%B6%D0%BD%D0%B0%D1%8F%2C%2010" target="_blank" rel="noopener">Открыть на карте</a>
+        </div>
+      </article>
+      <article class="place">
+        <div class="ph"><img src="assets/img/i-stone.jpg" alt="Кирпич, камень и дерево в шоуруме материалов" loading="lazy"></div>
+        <div class="place-body">
+          <div class="place-top"><h2 class="h-2">Шоурум в Истре</h2><span class="mono mute">Материалы вживую</span></div>
+          <p class="text">Волоколамское шоссе, 54 км, по дороге на объекты</p>
+          <dl class="place-dl"><dt>Что посмотреть</dt><dd>Кирпич, окна, кровля и фрагменты стен в разрезе</dd><dt>Часы</dt><dd>Сб и вс, с 10 до 18, бесплатная парковка</dd></dl>
+          <a class="btn btn--dark d" href="https://yandex.ru/maps/?text=%D0%98%D1%81%D1%82%D1%80%D0%B0%2C%20%D0%92%D0%BE%D0%BB%D0%BE%D0%BA%D0%BE%D0%BB%D0%B0%D0%BC%D1%81%D0%BA%D0%BE%D0%B5%20%D1%88%D0%BE%D1%81%D1%81%D0%B5" target="_blank" rel="noopener">Открыть на карте</a>
+        </div>
+      </article>
     </div>
   </section>
-  <section class="sec band" id="form" aria-labelledby="ctaT">
-    <div class="wrap two">
-      <div>
-        <h2 class="t-1" id="ctaT">Расскажите о своём доме</h2>
-        <p class="t-lead mute" style="margin-top:24px">Архитектор перезвонит в течение часа в рабочее время. Если знаете кадастровый номер участка, укажите его, и мы посмотрим участок до звонка.</p>
-      </div>
+  <section class="dark sec" id="form" aria-labelledby="ctaT">
+    <div class="pad halves">
+      <div><h2 class="h-1" id="ctaT">Обсудим ваш дом</h2><p class="text" style="margin-top:32px;color:rgba(255,255,255,.75)">Если знаете кадастровый номер участка, укажите его: посмотрим участок до звонка.</p></div>
       <div>
         <form class="form" novalidate>
           <div class="row2">
@@ -60,12 +56,12 @@
             <label for="cPhone">Телефон<input id="cPhone" name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label>
           </div>
           <label for="cProject">Проект<select id="cProject" name="project"></select></label>
-          <label for="cNote">Участок или кадастровый номер<input id="cNote" name="note" placeholder="Например: 50:08:0050211:1093"></label>
+          <label for="cNote">Участок<input id="cNote" name="note" placeholder="Кадастровый номер или округ"></label>
           <p class="err" role="alert" hidden></p>
-          <button class="btn btn--light" type="submit">Отправить заявку</button>
+          <button class="btn d" type="submit">Отправить заявку</button>
           <p class="fine">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
         </form>
-        <div class="sent" hidden><p class="t-2">Заявка отправлена</p><p class="mute">Архитектор позвонит на номер <span data-phone class="num"></span> в течение часа.</p></div>
+        <div class="sent" hidden><p class="h-2">Заявка отправлена</p><p style="color:rgba(255,255,255,.75)">Архитектор позвонит на номер <span data-phone class="num"></span> в течение часа.</p></div>
       </div>
     </div>
   </section>
