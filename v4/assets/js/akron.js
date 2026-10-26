@@ -62,7 +62,7 @@
         '<div><h4>Связаться</h4><p class="big num">+7 495 790-14-09</p><p style="margin-top:8px">hello@akron.example</p><p>Москва, Пресненская наб., 10, блок C</p></div>' +
       '</div>' +
       '<div class="ft-word pad" aria-hidden="true"><svg viewBox="0 0 1600 260"><text x="0" y="236" textLength="1600" lengthAdjust="spacingAndGlyphs" font-family="Unbounded, sans-serif" font-weight="800" font-size="300" fill="rgba(237,232,223,.05)">АКРОН</text></svg></div>' +
-      '<div class="ft-bot pad"><span>© 2009–2026 Акрон</span><span>Концепт-проект для портфолио. Компания, проекты и цены вымышлены</span></div>';
+      '<div class="ft-bot pad"><span>© 2009–2026 Акрон</span></div>';
   }
 
   /* ---------- Общие фрагменты ---------- */

@@ -65,7 +65,7 @@
           '<div><h4>Проекты</h4>' + D.projects.slice(0, 4).map(function (p) { return '<a href="project.html#' + p.slug + '">' + p.name + ', ' + p.area + ' м²</a>'; }).join('') + '<a href="projects.html">Все проекты</a></div>' +
           '<div><h4>Связаться</h4><p class="big num">+7 495 790-14-09</p><p>hello@akron.example</p><p class="mute" style="margin-top:12px">Москва, Пресненская наб., 10, блок C</p></div>' +
         '</div>' +
-        '<div class="ft-bottom"><span>© 2009–2026 Акрон</span><span>Концепт-проект для портфолио. Компания, проекты и цены вымышлены</span></div>' +
+        '<div class="ft-bottom"><span>© 2009–2026 Акрон</span></div>' +
       '</div>';
   }
 

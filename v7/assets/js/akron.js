@@ -70,7 +70,7 @@
         '<div><span class="mono">Проекты</span>' + D.projects.slice(0, 5).map(function (p) { return '<a href="project.html#' + p.slug + '">' + p.name + ', ' + p.area + ' м²</a>'; }).join('') + '</div>' +
         '<div><span class="mono">Контакты</span><p>hello@akron.example</p><p class="num">+7 495 790-14-09</p><p style="margin-top:12px">Москва, Пресненская наб., 10, блок C</p></div>' +
       '</div>' +
-      '<div class="pad ft-bot mono"><span>© 2009–2026 Акрон</span><span>Концепт-проект для портфолио, данные вымышлены</span></div>';
+      '<div class="pad ft-bot mono"><span>© 2009–2026 Акрон</span></div>';
   }
 
   /* ---------- Общие фрагменты ---------- */
