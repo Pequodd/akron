@@ -584,3 +584,4 @@ p { margin: 0; }
 .h8-arr { display: flex; align-items: center; gap: 6px; font-size: 15px; }
 .h8-arr button { width: 44px; height: 44px; border: 0; background: none; color: var(--black); cursor: pointer; display: grid; place-items: center; }
 .h8-arr button:hover { background: var(--black); color: var(--white); }
+.ft-bot { margin-top: 72px; border-top: 1px solid rgba(255, 255, 255, .16); }
